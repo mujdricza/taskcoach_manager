@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?taskcoach release="1.4.6" tskversion="37"?>
+
+<tasks>
+<task creationDateTime="2020-02-04 12:25:18.813000" expandedContexts="('taskviewer',)" id="060c30cf-4741-11ea-82d1-7cb27d86f5b0" modificationDateTime="2020-02-05 10:17:13.156000" status="1" subject="Weiteres">
+<task creationDateTime="2020-02-04 12:25:22.573000" id="0849ebcf-4741-11ea-9061-7cb27d86f5b0" modificationDateTime="2020-02-04 12:26:08.538000" status="1" subject="Idee für Prozessoptimierung: Unterlagen zentral verwalten (gitlab)">
+<description>
+Vorteil: immer das Neueste da
+Jeder könnte einen eigenen Unterordner erhalten
+</description>
+</task>
+<task creationDateTime="2020-02-04 12:26:16.676000" id="28896240-4741-11ea-b501-7cb27d86f5b0" modificationDateTime="2020-02-04 12:27:41.577000" status="1" subject="Idee für Mitarbeiter: (Schließ)fächer, Ablageort für eigene Materialien">
+<description>
+Vorteilhaft, wenn jmd. keinen eigenen Sitzplatz hat.
+Auch für Jacken ?
+
+</description>
+</task>
+<task actualstartdate="2020-02-05 10:17:54.145000" creationDateTime="2020-02-05 10:17:13.156000" id="4b73c040-47f8-11ea-8a66-7cb27d86f5b0" modificationDateTime="2020-02-14 17:02:12.365000" status="1" subject="Kurze Pause">
+<description>
+- Kaffee/Tee
+- Toilette
+</description>
+</task>
+<task actualstartdate="2020-02-04 12:30:26.306000" creationDateTime="2020-02-04 12:30:20.624000" id="b9f0e500-4741-11ea-98f2-7cb27d86f5b0" modificationDateTime="2020-02-14 11:57:50.745000" status="1" subject="Mittagessen">
+</task>
+<task creationDateTime="2020-02-04 15:29:21.828000" expandedContexts="('taskviewer',)" id="bc328e40-475a-11ea-9d18-7cb27d86f5b0" modificationDateTime="2020-02-14 13:53:57.461000" status="1" subject="Chill">
+<task creationDateTime="2020-02-14 13:53:57.461000" id="1056f84f-4f29-11ea-8f3b-f875a40fced7" modificationDateTime="2020-02-14 13:54:28.354000" status="1" subject="TaskCoach Export/Import, Template for next week" />
+<task creationDateTime="2020-02-14 12:42:24.317000" id="116d2ecf-4f1f-11ea-9231-f875a40fced7" modificationDateTime="2020-02-14 12:42:33.900000" status="1" subject="Kontakte aus Outlook exportieren" />
+<task creationDateTime="2020-02-04 16:45:48.919000" id="6a51186e-4765-11ea-9f43-7cb27d86f5b0" modificationDateTime="2020-02-13 09:46:11.569000" status="1" subject="axx-facebook">
+<description>
+https://www.facebook.com/axxessioGmbH/
+</description>
+</task>
+<task creationDateTime="2020-02-04 15:29:46.905000" id="cb25008f-475a-11ea-b567-7cb27d86f5b0" modificationDateTime="2020-02-04 15:30:17.257000" status="1" subject="Kontakte aus iPhone exportieren">
+<description>
++ importierbar machen
+(es dauert lange, bis man alle händisch einträgt)
+</description>
+</task>
+</task>
+</task>
+<task creationDateTime="2020-02-04 14:20:06.552000" expandedContexts="('taskviewer',)" id="0f75c180-4751-11ea-8dd7-7cb27d86f5b0" modificationDateTime="2020-02-04 14:23:58.907000" status="1" subject="Checkpoints">
+<description>
+4-mal in Bonn, für Alle
+</description>
+<task creationDateTime="2020-02-04 14:20:21.656000" duedate="2020-02-24 18:00:00" id="18767180-4751-11ea-a617-7cb27d86f5b0" modificationDateTime="2020-02-11 11:17:51.172000" plannedstartdate="2020-02-24 10:00:00" status="1" subject="Checkpoint Q1" />
+<task creationDateTime="2020-02-04 14:21:02.046000" duedate="2020-06-16 18:00:00" id="308977e1-4751-11ea-bfa8-7cb27d86f5b0" modificationDateTime="2020-02-11 11:31:26.574000" plannedstartdate="2020-06-16 10:00:00" status="1" subject="Checkpoint Q2" />
+<task creationDateTime="2020-02-04 14:22:21.245000" id="5fbe46cf-4751-11ea-bbf3-7cb27d86f5b0" modificationDateTime="2020-02-04 14:22:38.865000" status="1" subject="Checkpoint Q3 (Termin TBA)" />
+<task creationDateTime="2020-02-04 14:22:44.778000" duedate="2020-12-10 18:00:00" id="6dc520a1-4751-11ea-ba4b-7cb27d86f5b0" modificationDateTime="2020-02-11 11:32:28.867000" plannedstartdate="2020-12-10 10:00:00" status="1" subject="Checkpoint Q4 + Weihnachtsfeier" />
+<task creationDateTime="2020-02-04 14:23:23.889000" duedate="2020-03-06 18:00:00" id="8514fe0f-4751-11ea-aec1-7cb27d86f5b0" modificationDateTime="2020-02-11 11:28:04.841000" plannedstartdate="2020-03-06 10:00:00" status="1" subject="Operational Board 1" />
+<task creationDateTime="2020-02-04 14:23:58.907000" duedate="2020-09-18 18:00:00" id="99f450b0-4751-11ea-94d2-7cb27d86f5b0" modificationDateTime="2020-02-11 11:31:51.764000" plannedstartdate="2020-09-18 10:00:00" status="1" subject="Operational Board 2" />
+</task>
+<task creationDateTime="2020-02-04 12:11:45.102000" expandedContexts="('taskviewer',)" id="2109bede-473f-11ea-8cdf-7cb27d86f5b0" modificationDateTime="2020-02-14 13:18:45.414000" prerequisites="233ada40-4740-11ea-94bf-7cb27d86f5b0" status="1" subject="Administration">
+<task creationDateTime="2020-02-04 12:18:58.276000" id="233ada40-4740-11ea-94bf-7cb27d86f5b0" modificationDateTime="2020-02-11 19:18:45.328000" plannedstartdate="2020-02-04 18:00:00" status="1" subject="Zeiterfassung">
+<description>
+https://work.axxessio.com/#!.Zeiterfassung/Zeiterfassung
+</description>
+<recurrence unit="daily" />
+</task>
+<task creationDateTime="2020-02-04 14:08:09.651000" id="64275830-474f-11ea-8caa-7cb27d86f5b0" modificationDateTime="2020-02-04 16:18:05.474000" status="1" subject="SonicWall Connect ausprobieren (VPN)">
+<description>
+https://wiki.axxessio.com/index.php/VPN
+</description>
+</task>
+<task creationDateTime="2020-02-04 14:08:25.445000" id="6d91514f-474f-11ea-a308-7cb27d86f5b0" modificationDateTime="2020-02-04 14:08:33.885000" status="1" subject="Staatsbürgerschaft" />
+<task creationDateTime="2020-02-05 09:44:40.600000" id="bfa35980-47f3-11ea-8147-7cb27d86f5b0" modificationDateTime="2020-02-14 13:12:10.421000" status="1" subject="Mails and co.">
+</task>
+</task>
+<task actualstartdate="2020-02-04 12:58:21.389000" creationDateTime="2020-02-04 12:58:08.567000" expandedContexts="('taskviewer',)" id="9c1ccc6e-4745-11ea-bfbf-7cb27d86f5b0" modificationDateTime="2020-02-14 17:00:27.271000" status="1" subject="Arbeiten">
+<task actualstartdate="2020-02-14 14:30:04" creationDateTime="2020-02-14 17:00:27.271000" id="1dfc796e-4f43-11ea-a3b9-f875a40fced7" modificationDateTime="2020-02-14 17:01:39.302000" status="1" subject="Meeting with MB -- he shows his filtering script">
+</task>
+<task actualstartdate="2020-02-06 19:00:41" creationDateTime="2020-02-06 19:19:23.600000" id="33855500-490d-11ea-88c3-7cb27d86f5b0" modificationDateTime="2020-02-10 10:35:20.789000" status="1" subject="SmartSpeaker Info">
+<description>
+- Reading wiki
+
+</description>
+</task>
+<task actualstartdate="2020-02-06 13:07:47.437000" creationDateTime="2020-02-06 13:07:33.070000" id="41689ede-48d9-11ea-84ee-7cb27d86f5b0" modificationDateTime="2020-02-10 10:35:05.898000" status="1" subject="Idee für deutschen BERT">
+<description>
+LeEtal_2020v3_FlauBERT gelesen
+https://deepset.ai/german-bert gefunden
+
+</description>
+</task>
+<task actualstartdate="2020-02-14 17:19:14.784000" creationDateTime="2020-02-04 12:22:37.918000" id="a6258fde-4740-11ea-969d-7cb27d86f5b0" modificationDateTime="2020-02-14 17:19:14.784000" status="1" subject="Ideen für NT-Plan">
+<description>
+eigene Ideen einbringen!
+ASR (autom. Speech Recognition)
+NLU: z.B. Deutsches BERT || FlauBERT für das Französische
+GPT2 fürs Dt.
+</description>
+</task>
+<task creationDateTime="2020-02-04 12:23:14.006000" id="bba82761-4740-11ea-a402-7cb27d86f5b0" modificationDateTime="2020-02-04 16:03:20.777000" status="1" subject="5-Jahres-Plan mit FO besprechen">
+<description>
+5-Jahres-Plan ausarbeiten
+- Schulung
+- Ziele
+- Konferenzen, Publikationen (channel auf Mattermost: https://conf.axxessio.com/axxessio-gmbh/channels/publicationaxxessiocom)
+- Schwerpunkte
+
+Siehe auch:
+- https://wiki.axxessio.com/index.php/Ma%C3%9Fnahmen_zur_Weiterentwicklung
+- https://wiki.axxessio.com/index.php/Entwicklungsgespr%C3%A4ch (https://wiki.axxessio.com/images/5/58/Jjjjmmtt_Entwicklungsgespr%C3%A4ch_Name_Vorname_Vorlage.docx)
+- https://wiki.axxessio.com/index.php/Portal:Human_Resources -- Schulungen!
+
+</description>
+</task>
+</task>
+<task creationDateTime="2020-02-04 12:08:09.592000" expandedContexts="('taskviewer',)" id="a0958780-473e-11ea-8daf-7cb27d86f5b0" modificationDateTime="2020-02-11 11:16:53.414000" prerequisites="8a896d4f-4741-11ea-bef2-7cb27d86f5b0" status="1" subject="On-Boarding">
+<task actualstartdate="2020-02-14 12:50:54" creationDateTime="2020-02-04 16:44:13.089000" id="3132990f-4765-11ea-aac5-7cb27d86f5b0" modificationDateTime="2020-02-14 13:11:56.177000" status="1" subject="Abwesenheitsnotiz einrichten">
+<description>
+https://wiki.axxessio.com/index.php/Abwesenheitsregelung
+</description>
+</task>
+<task creationDateTime="2020-02-04 15:54:37.835000" id="43ceddb0-475e-11ea-8d8c-7cb27d86f5b0" modificationDateTime="2020-02-04 15:54:45.798000" status="1" subject="Visitenkartendaten weitergeben" />
+<task creationDateTime="2020-02-04 15:55:07.187000" id="554da030-475e-11ea-b85d-7cb27d86f5b0" modificationDateTime="2020-02-04 16:42:08.040000" status="1" subject="Xing-Profil erstellen">
+<description>
+https://wiki.axxessio.com/index.php/Erste_Schritte
+</description>
+</task>
+<task creationDateTime="2020-02-04 15:55:18.068000" id="5bc9ef40-475e-11ea-a5e4-7cb27d86f5b0" modificationDateTime="2020-02-04 16:42:01.607000" status="1" subject="LinkedIn-Profil erweitern">
+<description>
+https://wiki.axxessio.com/index.php/Erste_Schritte
+</description>
+</task>
+<task actualstartdate="2020-02-07 18:06:09.128000" creationDateTime="2020-02-04 17:14:03.688000" expandedContexts="('taskviewer',)" id="5c7a5280-4769-11ea-bfdc-7cb27d86f5b0" modificationDateTime="2020-02-10 10:37:11.593000" status="1" subject="Profile">
+<task creationDateTime="2020-02-04 12:08:18.144000" id="a5ae7600-473e-11ea-815f-7cb27d86f5b0" modificationDateTime="2020-02-05 17:44:50.753000" percentageComplete="50" status="1" subject="Lang-Profil">
+<description>
+Profile mit MK absprechen
+</description>
+</task>
+<task creationDateTime="2020-02-04 12:08:44.742000" expandedContexts="('taskviewer',)" id="b588fe61-473e-11ea-b2c7-7cb27d86f5b0" modificationDateTime="2020-02-05 17:44:37.304000" percentageComplete="50" status="1" subject="Kurzprofil" />
+<task creationDateTime="2020-02-04 12:08:56.860000" id="bcc20dc0-473e-11ea-9283-7cb27d86f5b0" modificationDateTime="2020-02-05 17:44:56.506000" percentageComplete="50" status="1" subject="Persönliches Profil" />
+</task>
+<task creationDateTime="2020-02-04 15:22:44.117000" id="cf24ac51-4759-11ea-b0d1-7cb27d86f5b0" modificationDateTime="2020-02-04 15:22:55.362000" status="1" subject="gemeinsamer Kalender?" />
+</task>
+<syncmlconfig>
+<TaskCoach-000001700fe2b927fb9aadb300c000a800b40097>
+<spds>
+<sources>
+<TaskCoach-000001700fe2b927fb9aadb300c000a800b40097.Tasks />
+<TaskCoach-000001700fe2b927fb9aadb300c000a800b40097.Notes />
+</sources>
+<syncml>
+<Auth />
+<Conn />
+</syncml>
+</spds>
+</TaskCoach-000001700fe2b927fb9aadb300c000a800b40097>
+</syncmlconfig>
+<guid>
+000001700fe2b927fb9aadb300c000a800b40097
+</guid>
+</tasks>

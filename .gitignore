@@ -1,0 +1,106 @@
+# Ignore the files and folders according to the following list
+# Doku: https://git-scm.com/docs/gitignore
+#
+# bar/      # matches the folder bar (tailing /)
+# *.dll     # matches all dlls
+# !foo.dll  # except for foo.dll
+# **/foo    # matches file or directory "foo" anywhere
+# abc/**    # matches all files inside directory "abc
+# a/**/b"   # matches "a/b", "a/x/b", "a/x/y/b" and so on
+#
+# after changing this file, update the tracked file as follows
+#$ git rm -r --cached .
+#$ git add .
+#$ git commit -m 'Update .gitignore'
+#$ git push
+
+
+# Special subfolders or files  #
+# folder names end with a "/"  # 
+################################
+#experiments/
+#tmp/
+#__*/
+#*_old
+
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.[oa]
+*.so
+*.py[co]
+__pycache__/
+
+# IDE #
+#######
+# for PyCharm
+.idea/
+# for NetBeans
+**/nbproject/
+build/
+nb-confiburation.xml
+build.xml
+manifest.mf
+nblibraries.properties
+CopyLibs/
+
+# further
+#dependencies.xml
+#pom.xml
+
+
+# LaTeX #
+#########
+*.aux
+*.bak
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+#*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+
+# Packages #
+############
+# check whether it is better for you 
+# to unpack these files and commit the raw source
+# git has its own built in compression methods
+# *.7z
+*.dmg
+# *.gz
+*.iso
+# *.jar
+#*.rar
+#*.tar
+# *.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.~*
+._*
+~$*

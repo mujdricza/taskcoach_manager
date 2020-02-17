@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?taskcoach release="1.4.6" tskversion="37"?>
+
+<tasks>
+<task creationDateTime="2020-02-04 12:25:18.813000" expandedContexts="('taskviewer',)" id="060c30cf-4741-11ea-82d1-7cb27d86f5b0" modificationDateTime="2020-02-05 10:17:13.156000" status="1" subject="Weiteres">
+<task creationDateTime="2020-02-04 12:25:22.573000" id="0849ebcf-4741-11ea-9061-7cb27d86f5b0" modificationDateTime="2020-02-04 12:26:08.538000" status="1" subject="Idee für Prozessoptimierung: Unterlagen zentral verwalten (gitlab)">
+<description>
+Vorteil: immer das Neueste da
+Jeder könnte einen eigenen Unterordner erhalten
+</description>
+</task>
+<task creationDateTime="2020-02-04 12:26:16.676000" id="28896240-4741-11ea-b501-7cb27d86f5b0" modificationDateTime="2020-02-04 12:27:41.577000" status="1" subject="Idee für Mitarbeiter: (Schließ)fächer, Ablageort für eigene Materialien">
+<description>
+Vorteilhaft, wenn jmd. keinen eigenen Sitzplatz hat.
+Auch für Jacken ?
+
+</description>
+</task>
+<task actualstartdate="2020-02-05 10:17:54.145000" creationDateTime="2020-02-05 10:17:13.156000" id="4b73c040-47f8-11ea-8a66-7cb27d86f5b0" modificationDateTime="2020-02-14 17:02:12.365000" status="1" subject="Kurze Pause">
+<description>
+- Kaffee/Tee
+- Toilette
+</description>
+<effort id="0c762351-4d76-11ea-9371-7cb27d86f5b0" start="2020-02-12 09:49:41" status="1" stop="2020-02-12 10:00:03" />
+<effort id="1110d4cf-4cec-11ea-8735-7cb27d86f5b0" start="2020-02-11 15:54:23" status="1" stop="2020-02-11 16:12:17" />
+<effort id="11ce0900-4be9-11ea-a93c-7cb27d86f5b0" start="2020-02-10 10:20:39" status="1" stop="2020-02-10 10:25:20" />
+<effort id="242811a1-4cec-11ea-82e0-7cb27d86f5b0" start="2020-02-11 17:25:35" status="1" stop="2020-02-11 17:32:51" />
+<effort id="5ca08bcf-4f43-11ea-bb9c-f875a40fced7" start="2020-02-14 16:50:55" status="1" stop="2020-02-14 17:02:15" />
+<effort id="6d744380-4c1d-11ea-91fd-7cb27d86f5b0" start="2020-02-10 16:35:16" status="1" stop="2020-02-10 17:04:54" />
+<effort id="d9ea408f-4cb9-11ea-a633-7cb27d86f5b0" start="2020-02-11 11:32:49" status="1" stop="2020-02-11 11:45:12" />
+<effort id="f6165d4f-4d98-11ea-bf6a-7cb27d86f5b0" start="2020-02-12 14:00:40" status="1" stop="2020-02-12 14:15:36" />
+</task>
+<task actualstartdate="2020-02-04 12:30:26.306000" creationDateTime="2020-02-04 12:30:20.624000" id="b9f0e500-4741-11ea-98f2-7cb27d86f5b0" modificationDateTime="2020-02-14 11:57:50.745000" status="1" subject="Mittagessen">
+<effort id="8560431e-4d8c-11ea-a252-7cb27d86f5b0" start="2020-02-12 12:00:37" status="1" stop="2020-02-12 12:40:54" />
+<effort id="89825900-4e51-11ea-8f99-f875a40fced7" start="2020-02-13 12:11:09" status="1" stop="2020-02-13 12:51:01" />
+<effort id="caae1e4f-4bf9-11ea-a048-7cb27d86f5b0" start="2020-02-10 12:38:00" status="1" stop="2020-02-10 13:20:19" />
+<effort id="d7da788f-4f18-11ea-a4ca-f875a40fced7" start="2020-02-14 11:57:50" status="1" stop="2020-02-14 12:37:40" />
+<effort id="dc3ffd1e-4cc9-11ea-982c-7cb27d86f5b0" start="2020-02-11 12:18:06" status="1" stop="2020-02-11 13:20:25" />
+</task>
+<task creationDateTime="2020-02-04 15:29:21.828000" expandedContexts="('taskviewer',)" id="bc328e40-475a-11ea-9d18-7cb27d86f5b0" modificationDateTime="2020-02-14 13:53:57.461000" status="1" subject="Chill">
+<task creationDateTime="2020-02-14 13:53:57.461000" id="1056f84f-4f29-11ea-8f3b-f875a40fced7" modificationDateTime="2020-02-14 13:54:28.354000" status="1" subject="TaskCoach Export/Import, Template for next week" />
+<task creationDateTime="2020-02-14 12:42:24.317000" id="116d2ecf-4f1f-11ea-9231-f875a40fced7" modificationDateTime="2020-02-14 12:42:33.900000" status="1" subject="Kontakte aus Outlook exportieren" />
+<task creationDateTime="2020-02-04 16:45:48.919000" id="6a51186e-4765-11ea-9f43-7cb27d86f5b0" modificationDateTime="2020-02-13 09:46:11.569000" status="1" subject="axx-facebook">
+<description>
+https://www.facebook.com/axxessioGmbH/
+</description>
+</task>
+<task creationDateTime="2020-02-04 15:29:46.905000" id="cb25008f-475a-11ea-b567-7cb27d86f5b0" modificationDateTime="2020-02-04 15:30:17.257000" status="1" subject="Kontakte aus iPhone exportieren">
+<description>
++ importierbar machen
+(es dauert lange, bis man alle händisch einträgt)
+</description>
+</task>
+</task>
+<task actualstartdate="2020-02-11 18:04:24" completiondate="2020-02-11 19:17:16.482000" creationDateTime="2020-02-04 16:55:27.882000" duedate="2020-02-11 19:00:00" id="c367d69e-4766-11ea-9931-7cb27d86f5b0" modificationDateTime="2020-02-11 19:17:16.482000" percentageComplete="100" plannedstartdate="2020-02-11 18:40:00" status="1" subject="Massage">
+<description>
+In Darmstadt gibt es in jeder ungeraden Kalenderwoche Dienstag Abends von 17:00-19:00 Uhr Massagen. Ein Termin dauert 20 Minuten und es können also 6 Personen pro Dienstag dran kommen.
+
+Wer Interesse hat, meldet sich einfach bei Mel und kann nach freien Slots fragen und sich eintragen lassen :) 
+</description>
+<effort id="ad7396b0-4cfa-11ea-8fee-7cb27d86f5b0" start="2020-02-11 18:42:24" status="1" stop="2020-02-11 19:00:03" />
+</task>
+</task>
+<task actualstartdate="2020-02-07 16:50:31" creationDateTime="2020-02-07 16:53:49.882000" expandedContexts="('taskviewer',)" id="083b799e-49c2-11ea-b4f2-7cb27d86f5b0" modificationDateTime="2020-02-14 17:02:54.879000" status="1" subject="Meeting">
+<description>
+- Meetings allgemein
+- Protokoll schreiben
+- usw.
+</description>
+<task actualstartdate="2020-02-07 13:30:00" completiondate="2020-02-10 10:54:10.419000" creationDateTime="2020-02-07 16:53:59.144000" id="0dc0be80-49c2-11ea-9055-7cb27d86f5b0" modificationDateTime="2020-02-10 10:54:10.419000" percentageComplete="100" status="1" subject="Gruppen-Meeting">
+<description>
+- Jin-Hoon Jeong (JHJ), Matthias Bisping (MB), Melanie Lenz (ML), Khanh Pham (KP), EMM
+- Ideen für internes Projekt
+  :)
+</description>
+</task>
+<task actualstartdate="2020-02-11 14:25:55.127000" completiondate="2020-02-11 15:54:27.166000" creationDateTime="2020-02-10 10:53:30.122000" duedate="2020-02-11 18:00:00" id="3117269e-4beb-11ea-b92f-7cb27d86f5b0" modificationDateTime="2020-02-11 15:54:27.165000" percentageComplete="100" plannedstartdate="2020-02-11 10:00:00" status="1" subject="Melanie Lenz: LUIS-Einführung">
+<description>
+- Einführung
+- Protokoll
+
+</description>
+<effort id="081e5470-4cd2-11ea-a388-7cb27d86f5b0" start="2020-02-11 14:25:55" status="1" stop="2020-02-11 15:37:59" />
+<effort id="2005844f-4cdc-11ea-a8a4-7cb27d86f5b0" start="2020-02-11 15:38:59" status="1" stop="2020-02-11 15:54:23" />
+</task>
+<task actualstartdate="2020-02-07 16:00:00" completiondate="2020-02-10 10:54:05.075000" creationDateTime="2020-02-07 16:56:18.701000" id="60ef73cf-49c2-11ea-a564-7cb27d86f5b0" modificationDateTime="2020-02-10 10:54:05.075000" percentageComplete="100" status="1" subject="Meeting ML+MB+EMM+SP">
+<description>
+Melanie Lenz (ML), Matthias Binding (MB), EMM
+- Besprechung nach Team-Call über Einführungsinformationen
+- Dokumentation über SmartVoiceHub
+
++ Sascha Peters (SP): weitere Informationen über meinen Anfang nächste Woche bei SmartVoiceHub
+  * MB wird mein Onboard-Buddy 
+  * Anna Brandt (mayato) wird mich technisch einführen (sie ist von Anfang an beim Projekt, verlässt bald das Projekt)
+
+
+</description>
+</task>
+<task completiondate="2020-02-11 15:57:46.092000" creationDateTime="2020-02-04 12:29:01.093000" duedate="2020-02-17 16:00:00" id="8a896d4f-4741-11ea-bef2-7cb27d86f5b0" modificationDateTime="2020-02-11 15:57:46.092000" percentageComplete="100" plannedstartdate="2020-02-07 15:00:00" status="1" subject="Team-Call (Zoom) freitags, 20200207">
+<description>
+- jede Woche für die NT-Gruppe
+- Zoom
+</description>
+</task>
+<task actualstartdate="2020-02-07 18:04:36.289000" completiondate="2020-02-10 10:52:19.871000" creationDateTime="2020-02-07 18:02:28.523000" id="9f2237b0-49cb-11ea-91c0-7cb27d86f5b0" modificationDateTime="2020-02-10 10:52:19.871000" percentageComplete="100" status="1" subject="TODO for Team-Call 20200214, 15:00">
+<description>
+- TODO: ideas in axxessioWiki on chatbot for Mattermost
+  DialogFlow
+</description>
+</task>
+<task actualstartdate="2020-02-13 09:45:25.828000" completiondate="2020-02-14 17:02:29.676000" creationDateTime="2020-02-11 15:56:12.549000" duedate="2020-02-14 16:00:00" id="a527534f-4cde-11ea-b621-7cb27d86f5b0" modificationDateTime="2020-02-14 17:02:29.676000" percentageComplete="100" plannedstartdate="2020-02-14 15:00:00" status="1" subject="Team-Call Fr. 15 Uhr">
+<description>
+- TODO: Meine Idee (Phrasen-Extraktion) präsentieren
+- TODO: GermaNet vorstellen
+- auch Andere sollten ihre Ideen vorstellen
+</description>
+<effort id="3bd79a0f-4f43-11ea-bcfa-f875a40fced7" start="2020-02-14 15:00:59" status="1" stop="2020-02-14 15:40:17" />
+</task>
+<task completiondate="2020-02-13 09:45:08.851000" creationDateTime="2020-02-10 18:06:33.679000" duedate="2020-02-11 18:00:00" id="b07f4dee-4c27-11ea-8992-7cb27d86f5b0" modificationDateTime="2020-02-13 09:45:08.850000" percentageComplete="100" plannedstartdate="2020-02-11 10:00:00" status="1" subject="Meeting FO: Di. Vormittag">
+<effort id="4a471500-4cb7-11ea-af69-7cb27d86f5b0" start="2020-02-11 10:30:09" status="1" stop="2020-02-11 10:48:29" />
+</task>
+<task actualstartdate="2020-02-11 11:45:12" completiondate="2020-02-11 15:54:55.146000" creationDateTime="2020-02-11 13:26:37.811000" id="bfcafc30-4cc9-11ea-90be-7cb27d86f5b0" modificationDateTime="2020-02-11 15:54:55.146000" percentageComplete="100" status="1" subject="Meeting MB: Projekt-Onboarding">
+<effort id="d0ec0e4f-4cc9-11ea-bde5-7cb27d86f5b0" start="2020-02-11 11:45:12" status="1" stop="2020-02-11 12:18:06" />
+</task>
+<task actualstartdate="2020-02-07 17:43:13.760000" completiondate="2020-02-10 18:07:41.616000" creationDateTime="2020-02-07 17:42:45.584000" duedate="2020-02-10 18:00:00" id="de0c0d00-49c8-11ea-94f1-7cb27d86f5b0" modificationDateTime="2020-02-10 18:07:41.616000" percentageComplete="100" plannedstartdate="2020-02-10 10:00:00" status="1" subject="FO+EMM Meeting am Montag">
+<description>
+- Fragen:
+ * Parkplatz am TK?
+ * meine Ideen (20200207_ideas.txt)
+ * Formate, Verantwortlichkeiten
+
+
+</description>
+<effort id="495a1900-4c1f-11ea-99bf-7cb27d86f5b0" start="2020-02-10 17:06:24" status="1" stop="2020-02-10 18:06:27" />
+</task>
+<task actualstartdate="2020-02-10 01:24:44" completiondate="2020-02-10 16:35:00" creationDateTime="2020-02-07 17:43:19.640000" id="f2589580-49c8-11ea-ab2f-7cb27d86f5b0" modificationDateTime="2020-02-10 16:51:16.718000" percentageComplete="100" plannedstartdate="2020-02-10 15:00:00" status="1" subject="EK+EMM Mo: Jira/Gard-Einführung">
+<effort id="2c2dc0de-4c1d-11ea-a491-7cb27d86f5b0" start="2020-02-10 15:00:44" status="1" stop="2020-02-10 16:35:16" />
+</task>
+<effort id="1ecfa930-4c28-11ea-8825-7cb27d86f5b0" start="2020-02-10 18:09:38" status="1" stop="2020-02-10 18:23:45" />
+<effort id="75f7aaf0-4f43-11ea-a230-f875a40fced7" start="2020-02-14 17:02:15" status="1" stop="2020-02-14 17:19:14" />
+</task>
+<task creationDateTime="2020-02-04 14:20:06.552000" expandedContexts="('taskviewer',)" id="0f75c180-4751-11ea-8dd7-7cb27d86f5b0" modificationDateTime="2020-02-04 14:23:58.907000" status="1" subject="Checkpoints">
+<description>
+4-mal in Bonn, für Alle
+</description>
+<task creationDateTime="2020-02-04 14:20:21.656000" duedate="2020-02-24 18:00:00" id="18767180-4751-11ea-a617-7cb27d86f5b0" modificationDateTime="2020-02-11 11:17:51.172000" plannedstartdate="2020-02-24 10:00:00" status="1" subject="Checkpoint Q1" />
+<task creationDateTime="2020-02-04 14:21:02.046000" duedate="2020-06-16 18:00:00" id="308977e1-4751-11ea-bfa8-7cb27d86f5b0" modificationDateTime="2020-02-11 11:31:26.574000" plannedstartdate="2020-06-16 10:00:00" status="1" subject="Checkpoint Q2" />
+<task creationDateTime="2020-02-04 14:22:21.245000" id="5fbe46cf-4751-11ea-bbf3-7cb27d86f5b0" modificationDateTime="2020-02-04 14:22:38.865000" status="1" subject="Checkpoint Q3 (Termin TBA)" />
+<task creationDateTime="2020-02-04 14:22:44.778000" duedate="2020-12-10 18:00:00" id="6dc520a1-4751-11ea-ba4b-7cb27d86f5b0" modificationDateTime="2020-02-11 11:32:28.867000" plannedstartdate="2020-12-10 10:00:00" status="1" subject="Checkpoint Q4 + Weihnachtsfeier" />
+<task creationDateTime="2020-02-04 14:23:23.889000" duedate="2020-03-06 18:00:00" id="8514fe0f-4751-11ea-aec1-7cb27d86f5b0" modificationDateTime="2020-02-11 11:28:04.841000" plannedstartdate="2020-03-06 10:00:00" status="1" subject="Operational Board 1" />
+<task creationDateTime="2020-02-04 14:23:58.907000" duedate="2020-09-18 18:00:00" id="99f450b0-4751-11ea-94d2-7cb27d86f5b0" modificationDateTime="2020-02-11 11:31:51.764000" plannedstartdate="2020-09-18 10:00:00" status="1" subject="Operational Board 2" />
+</task>
+<task creationDateTime="2020-02-04 12:11:45.102000" expandedContexts="('taskviewer',)" id="2109bede-473f-11ea-8cdf-7cb27d86f5b0" modificationDateTime="2020-02-14 13:18:45.414000" prerequisites="233ada40-4740-11ea-94bf-7cb27d86f5b0" status="1" subject="Administration">
+<task completiondate="2020-02-11 19:18:31.769000" creationDateTime="2020-02-10 10:52:33.778000" id="0f81bd21-4beb-11ea-b0cc-7cb27d86f5b0" modificationDateTime="2020-02-11 19:18:31.769000" percentageComplete="100" plannedstartdate="2020-02-10 12:00:00" status="1" subject="CM: Partitionierung, Thunderbird">
+<effort id="60e56280-4c03-11ea-837c-7cb27d86f5b0" start="2020-02-10 14:30:00" status="1" stop="2020-02-10 15:00:54" />
+</task>
+<task creationDateTime="2020-02-04 12:18:58.276000" id="233ada40-4740-11ea-94bf-7cb27d86f5b0" modificationDateTime="2020-02-11 19:18:45.328000" plannedstartdate="2020-02-04 18:00:00" status="1" subject="Zeiterfassung">
+<description>
+https://work.axxessio.com/#!.Zeiterfassung/Zeiterfassung
+</description>
+<recurrence unit="daily" />
+<effort id="f0c63d00-4cfa-11ea-8cc7-7cb27d86f5b0" start="2020-02-11 19:18:45" status="1" stop="2020-02-11 19:26:31" />
+</task>
+<task creationDateTime="2020-02-04 14:08:09.651000" id="64275830-474f-11ea-8caa-7cb27d86f5b0" modificationDateTime="2020-02-04 16:18:05.474000" status="1" subject="SonicWall Connect ausprobieren (VPN)">
+<description>
+https://wiki.axxessio.com/index.php/VPN
+</description>
+</task>
+<task creationDateTime="2020-02-04 14:08:25.445000" id="6d91514f-474f-11ea-a308-7cb27d86f5b0" modificationDateTime="2020-02-04 14:08:33.885000" status="1" subject="Staatsbürgerschaft" />
+<task completiondate="2020-02-11 19:18:36.404000" creationDateTime="2020-02-04 13:04:31.415000" id="804ec470-4746-11ea-9807-7cb27d86f5b0" modificationDateTime="2020-02-11 19:18:36.404000" percentageComplete="100" status="1" subject="Intallieren">
+<description>
+- AdBlock für Firefox
+- Mattermost Desktop-Version
+</description>
+</task>
+<task creationDateTime="2020-02-05 09:44:40.600000" id="bfa35980-47f3-11ea-8147-7cb27d86f5b0" modificationDateTime="2020-02-14 13:12:10.421000" status="1" subject="Mails and co.">
+<effort id="07aa0870-4cca-11ea-8c54-7cb27d86f5b0" start="2020-02-11 13:20:25" status="1" stop="2020-02-11 13:35:50" />
+<effort id="1b2bd480-4e57-11ea-810c-f875a40fced7" start="2020-02-13 12:51:01" status="1" stop="2020-02-13 13:26:21" />
+<effort id="1bfdeb80-4cec-11ea-b1ea-7cb27d86f5b0" start="2020-02-11 16:12:17" status="1" stop="2020-02-11 17:25:35" />
+<effort id="3a07064f-4f23-11ea-a014-f875a40fced7" start="2020-02-14 13:01:57" status="1" stop="2020-02-14 13:12:16" />
+<effort id="3da3f55e-4d71-11ea-88ae-7cb27d86f5b1" start="2020-02-12 09:15:34" status="1" stop="2020-02-12 09:49:41" />
+<effort id="504b8080-4cad-11ea-8faa-7cb27d86f5b0" start="2020-02-11 10:00:04" status="1" stop="2020-02-11 10:30:09" />
+<effort id="97c943c0-4d7a-11ea-a76c-7cb27d86f5b0" start="2020-02-12 10:00:31" status="1" stop="2020-02-12 10:32:35" />
+<effort id="d7303400-4f06-11ea-a8de-f875a40fced7" start="2020-02-14 09:45:58" status="1" stop="2020-02-14 09:49:11" />
+<effort id="ea191c9e-4e3c-11ea-a203-f875a40fced7" start="2020-02-13 09:43:32" status="1" stop="2020-02-13 09:46:54" />
+<effort id="f6b6270f-4be8-11ea-a906-7cb27d86f5b0" start="2020-02-10 09:00:33" status="1" stop="2020-02-10 10:20:39" />
+</task>
+<effort id="4f31b4b0-4c00-11ea-b3ee-7cb27d86f5b0" start="2020-02-10 13:20:19" status="1" stop="2020-02-10 13:24:44" />
+</task>
+<task actualstartdate="2020-02-04 12:58:21.389000" creationDateTime="2020-02-04 12:58:08.567000" expandedContexts="('taskviewer',)" id="9c1ccc6e-4745-11ea-bfbf-7cb27d86f5b0" modificationDateTime="2020-02-14 17:00:27.271000" status="1" subject="Arbeiten">
+<task actualstartdate="2020-02-14 14:30:04" creationDateTime="2020-02-14 17:00:27.271000" id="1dfc796e-4f43-11ea-a3b9-f875a40fced7" modificationDateTime="2020-02-14 17:01:39.302000" status="1" subject="Meeting with MB -- he shows his filtering script">
+<effort id="31555321-4f43-11ea-9fb5-f875a40fced7" start="2020-02-14 14:30:04" status="1" stop="2020-02-14 15:00:59" />
+<effort id="48eb8861-4f43-11ea-a699-f875a40fced7" start="2020-02-14 15:40:17" status="1" stop="2020-02-14 16:50:55" />
+</task>
+<task actualstartdate="2020-02-06 19:00:41" creationDateTime="2020-02-06 19:19:23.600000" id="33855500-490d-11ea-88c3-7cb27d86f5b0" modificationDateTime="2020-02-10 10:35:20.789000" status="1" subject="SmartSpeaker Info">
+<description>
+- Reading wiki
+
+</description>
+</task>
+<task actualstartdate="2020-02-05 14:28:12.497000" completiondate="2020-02-12 15:24:33.526000" creationDateTime="2020-02-05 14:27:10.571000" duedate="2020-02-12 18:00:00" id="369babb0-481b-11ea-b44f-7cb27d86f5b0" modificationDateTime="2020-02-12 15:24:33.526000" percentageComplete="100" plannedstartdate="2020-02-12 12:00:00" status="1" subject="Scrum/SaFe-Einführung durch Mathias Löwen">
+<description>
+Er kommt zu mir.
+Ggf. schickt er mir im Voraus Materialien zu.
+
+Von Eugen Kunert:
+https://wiki.axxessio.com/index.php/Scrum
+
+ -- FO organisiert für mich eine Schulung
+https://www.scaledagileframework.com/
+
+am Nachmittag, im axx-Gebäude
+
++ ich lese die zugeschickten Sachen durch
+</description>
+<effort id="0ae153c0-4ccc-11ea-a84d-7cb27d86f5b0" start="2020-02-11 13:35:50" status="1" stop="2020-02-11 14:25:55" />
+<effort id="2aa34f40-4cec-11ea-9098-7cb27d86f5b0" start="2020-02-11 17:32:51" status="1" stop="2020-02-11 18:31:24" />
+<effort id="429209e1-4d9e-11ea-8451-7cb27d86f5b0" start="2020-02-12 14:15:36" status="1" stop="2020-02-12 15:24:30" />
+<effort id="8be85200-4d8c-11ea-ae51-7cb27d86f5b0" start="2020-02-12 12:41:02" status="1" stop="2020-02-12 14:00:40" />
+<effort id="9dbd7711-4d7a-11ea-99b2-7cb27d86f5b0" start="2020-02-12 10:32:41" status="1" stop="2020-02-12 12:00:37" />
+</task>
+<task actualstartdate="2020-02-06 13:07:47.437000" creationDateTime="2020-02-06 13:07:33.070000" id="41689ede-48d9-11ea-84ee-7cb27d86f5b0" modificationDateTime="2020-02-10 10:35:05.898000" status="1" subject="Idee für deutschen BERT">
+<description>
+LeEtal_2020v3_FlauBERT gelesen
+ https://deepset.ai/german-bert gefunden
+
+</description>
+</task>
+<task actualstartdate="2020-02-12 15:24:52.073000" completiondate="2020-02-14 12:37:57.834000" creationDateTime="2020-02-12 15:24:42.849000" id="6937bd0f-4da3-11ea-93d1-7cb27d86f5b0" modificationDateTime="2020-02-14 12:37:57.834000" percentageComplete="100" status="1" subject="Presentation GermaNet">
+<effort id="3241640f-4e83-11ea-a93a-f875a40fced7" start="2020-02-13 13:26:21" status="1" stop="2020-02-13 16:06:37" />
+<effort id="7322a600-4da3-11ea-979b-7cb27d86f5b0" start="2020-02-12 15:24:59" status="1" stop="2020-02-12 17:47:20" />
+</task>
+<task actualstartdate="2020-02-14 17:19:14.784000" creationDateTime="2020-02-04 12:22:37.918000" id="a6258fde-4740-11ea-969d-7cb27d86f5b0" modificationDateTime="2020-02-14 17:19:14.784000" status="1" subject="Ideen für NT-Plan">
+<description>
+eigene Ideen einbringen!
+ASR (autom. Speech Recognition)
+NLU: z.B. Deutsches BERT || FlauBERT für das Französische 
+GPT2 fürs Dt.
+</description>
+<effort id="be094e00-4f45-11ea-b88a-f875a40fced7" start="2020-02-14 17:19:14" status="1" stop="2020-02-14 19:33:30" />
+</task>
+<task actualstartdate="2020-02-11 19:18:19.582000" completiondate="2020-02-14 12:38:01.851000" creationDateTime="2020-02-04 12:08:30.730000" id="ad2eeea1-473e-11ea-b820-7cb27d86f5b0" modificationDateTime="2020-02-14 12:38:01.851000" percentageComplete="100" status="1" subject="Ideen für LUIS">
+<description>
+Projektarbeit
+SmartVoiceUp, Hallo Magenta
+Microsoft Luis
+	- trainieren
+	- neue Intent, Features, Entities, Phrases
+	- siehe Wiki-Doku
+</description>
+<effort id="3b984a5e-4e83-11ea-ab09-f875a40fced7" start="2020-02-13 16:06:37" status="1" stop="2020-02-13 18:06:55" />
+<effort id="e4e62eb0-4f06-11ea-9890-f875a40fced7" start="2020-02-14 09:49:11" status="1" stop="2020-02-14 11:57:50" />
+</task>
+<task actualstartdate="2020-02-13 09:49:12.202000" completiondate="2020-02-13 13:15:12.246000" creationDateTime="2020-02-13 09:49:02.295000" id="aeecd670-4e3d-11ea-a7bf-f875a40fced7" modificationDateTime="2020-02-13 13:15:12.246000" percentageComplete="100" status="1" subject="GARD kennen lernen">
+<effort id="b4d4869e-4e3d-11ea-85a4-f875a40fced7" start="2020-02-13 09:49:12" status="1" stop="2020-02-13 12:11:09" />
+</task>
+<task creationDateTime="2020-02-04 12:23:14.006000" id="bba82761-4740-11ea-a402-7cb27d86f5b0" modificationDateTime="2020-02-04 16:03:20.777000" status="1" subject="5-Jahres-Plan mit FO besprechen">
+<description>
+5-Jahres-Plan ausarbeiten
+- Schulung
+- Ziele
+- Konferenzen, Publikationen (channel auf Mattermost: https://conf.axxessio.com/axxessio-gmbh/channels/publicationaxxessiocom)
+- Schwerpunkte
+
+Siehe auch:
+- https://wiki.axxessio.com/index.php/Ma%C3%9Fnahmen_zur_Weiterentwicklung
+- https://wiki.axxessio.com/index.php/Entwicklungsgespr%C3%A4ch (https://wiki.axxessio.com/images/5/58/Jjjjmmtt_Entwicklungsgespr%C3%A4ch_Name_Vorname_Vorlage.docx)
+- https://wiki.axxessio.com/index.php/Portal:Human_Resources -- Schulungen!
+
+</description>
+</task>
+<task actualstartdate="2020-02-07 11:22:18" completiondate="2020-02-14 12:37:51.043000" creationDateTime="2020-02-07 11:37:38.744000" id="dc8d8b80-4995-11ea-abd6-7cb27d86f5b0" modificationDateTime="2020-02-14 12:37:51.043000" percentageComplete="100" status="1" subject="SmartVoiceHub Info" />
+<task actualstartdate="2020-02-05 14:28:59.131000" completiondate="2020-02-11 19:17:55.065000" creationDateTime="2020-02-04 17:24:57.365000" id="e219844f-476a-11ea-9c31-7cb27d86f5b0" modificationDateTime="2020-02-11 19:17:55.065000" percentageComplete="100" plannedstartdate="2020-02-06 10:00:00" status="1" subject="NT: Verwendete Tools bei Mitgliedern nachfragen">
+<description>
+- Melanie Lenz
+- Alexander Zap
+- Matthias Bisping
+
+</description>
+</task>
+<effort id="29f069e1-4f24-11ea-a6a1-f875a40fced7" start="2020-02-14 13:12:16" status="1" stop="2020-02-14 14:30:04" />
+<effort id="5bd60421-4cb7-11ea-8acc-7cb27d86f5b0" start="2020-02-11 10:48:29" status="1" stop="2020-02-11 11:32:49" />
+<effort id="68803fb0-4f1e-11ea-9979-f875a40fced7" start="2020-02-14 12:37:40" status="1" stop="2020-02-14 12:45:40" />
+</task>
+<task creationDateTime="2020-02-04 12:08:09.592000" expandedContexts="('taskviewer',)" id="a0958780-473e-11ea-8daf-7cb27d86f5b0" modificationDateTime="2020-02-11 11:16:53.414000" prerequisites="8a896d4f-4741-11ea-bef2-7cb27d86f5b0" status="1" subject="On-Boarding">
+<task actualstartdate="2020-02-14 12:50:54" creationDateTime="2020-02-04 16:44:13.089000" id="3132990f-4765-11ea-aac5-7cb27d86f5b0" modificationDateTime="2020-02-14 13:11:56.177000" status="1" subject="Abwesenheitsnotiz einrichten">
+<description>
+https://wiki.axxessio.com/index.php/Abwesenheitsregelung
+</description>
+<effort id="3189900f-4f23-11ea-b5ae-f875a40fced7" start="2020-02-14 12:50:54" status="1" stop="2020-02-14 13:01:57" />
+</task>
+<task completiondate="2020-02-13 09:45:44.799000" creationDateTime="2020-02-04 16:30:25.122000" id="43b0dc1e-4763-11ea-b70a-7cb27d86f5b0" modificationDateTime="2020-02-13 09:45:44.799000" percentageComplete="100" status="1" subject="Mail auf Handy einrichten">
+<description>
+https://wiki.axxessio.com/index.php/Mail_auf_Handy#IOS_Einstellungen
+- Carlos fragen!
+</description>
+</task>
+<task creationDateTime="2020-02-04 15:54:37.835000" id="43ceddb0-475e-11ea-8d8c-7cb27d86f5b0" modificationDateTime="2020-02-04 15:54:45.798000" status="1" subject="Visitenkartendaten weitergeben" />
+<task creationDateTime="2020-02-04 15:55:07.187000" id="554da030-475e-11ea-b85d-7cb27d86f5b0" modificationDateTime="2020-02-04 16:42:08.040000" status="1" subject="Xing-Profil erstellen">
+<description>
+https://wiki.axxessio.com/index.php/Erste_Schritte
+</description>
+</task>
+<task actualstartdate="2020-02-10 01:08:30" completiondate="2020-02-10 18:08:51.118000" creationDateTime="2020-02-10 10:40:13.561000" duedate="2020-02-10 16:00:00" id="564d9691-4be9-11ea-a727-7cb27d86f5b0" modificationDateTime="2020-02-10 18:08:51.118000" percentageComplete="100" plannedstartdate="2020-02-10 15:00:00" status="1" subject="Jira-Einführung">
+<effort id="5cb8a78f-4be9-11ea-93c9-7cb27d86f5b0" start="2020-02-10 10:25:20" status="1" stop="2020-02-10 12:26:38" />
+<effort id="f613f500-4c27-11ea-af50-7cb27d86f5b0" start="2020-02-10 15:00:30" status="1" stop="2020-02-10 16:45:30" />
+</task>
+<task creationDateTime="2020-02-04 15:55:18.068000" id="5bc9ef40-475e-11ea-a5e4-7cb27d86f5b0" modificationDateTime="2020-02-04 16:42:01.607000" status="1" subject="LinkedIn-Profil erweitern">
+<description>
+https://wiki.axxessio.com/index.php/Erste_Schritte
+</description>
+</task>
+<task actualstartdate="2020-02-07 18:06:09.128000" creationDateTime="2020-02-04 17:14:03.688000" expandedContexts="('taskviewer',)" id="5c7a5280-4769-11ea-bfdc-7cb27d86f5b0" modificationDateTime="2020-02-10 10:37:11.593000" status="1" subject="Profile">
+<task creationDateTime="2020-02-04 12:08:18.144000" id="a5ae7600-473e-11ea-815f-7cb27d86f5b0" modificationDateTime="2020-02-05 17:44:50.753000" percentageComplete="50" status="1" subject="Lang-Profil">
+<description>
+Profile mit MK absprechen
+</description>
+</task>
+<task creationDateTime="2020-02-04 12:08:44.742000" expandedContexts="('taskviewer',)" id="b588fe61-473e-11ea-b2c7-7cb27d86f5b0" modificationDateTime="2020-02-05 17:44:37.304000" percentageComplete="50" status="1" subject="Kurzprofil" />
+<task creationDateTime="2020-02-04 12:08:56.860000" id="bcc20dc0-473e-11ea-9283-7cb27d86f5b0" modificationDateTime="2020-02-05 17:44:56.506000" percentageComplete="50" status="1" subject="Persönliches Profil" />
+</task>
+<task completiondate="2020-02-11 15:58:10.117000" creationDateTime="2020-02-11 11:16:53.413000" duedate="2020-02-11 18:00:00" id="9fee1d51-4cb7-11ea-95fd-7cb27d86f5b0" modificationDateTime="2020-02-11 15:58:10.116000" percentageComplete="100" plannedstartdate="2020-02-11 13:00:00" status="1" subject="MS: Foto für die Mitarbeiterwand" />
+<task completiondate="2020-02-10 18:09:08.653000" creationDateTime="2020-02-04 12:23:40.200000" id="cb450a80-4740-11ea-af46-7cb27d86f5b0" modificationDateTime="2020-02-10 18:09:08.652000" percentageComplete="100" status="1" subject="Liste der verwendeten/mitgemachten Tools/Projekte">
+<description>
+Liste der Tools und Projekte, was ich bisher kenne, gemacht habe
+- diese Woche an FO
+- am besten im Wiki-Profil
+</description>
+</task>
+<task actualstartdate="2020-02-14 12:45:40" completiondate="2020-02-14 12:51:27.774000" creationDateTime="2020-02-04 16:41:23.710000" id="cc3d69e1-4764-11ea-8158-7cb27d86f5b0" modificationDateTime="2020-02-14 12:51:27.774000" percentageComplete="100" status="1" subject="Mailbox-Ansage auf Handy">
+<description>
+"&lt;Vorname Nachname&gt;, Firma axxessio, Guten Tag. Bitte hinterlassen Sie Ihren Namen und Ihre Telefon-Nummer. Ich werde Sie dann umgehend zurückrufen. Vielen Dank und auf Wiederhören." 
+</description>
+<effort id="40733021-4f20-11ea-b277-f875a40fced7" start="2020-02-14 12:45:40" status="1" stop="2020-02-14 12:50:54" />
+</task>
+<task creationDateTime="2020-02-04 15:22:44.117000" id="cf24ac51-4759-11ea-b0d1-7cb27d86f5b0" modificationDateTime="2020-02-04 15:22:55.362000" status="1" subject="gemeinsamer Kalender?" />
+<task completiondate="2020-02-10 18:09:01.493000" creationDateTime="2020-02-04 12:24:19.851000" id="e2e74db0-4740-11ea-8811-7cb27d86f5b0" modificationDateTime="2020-02-10 18:09:01.492000" percentageComplete="100" status="1" subject="Schulung für Ticket-Handling" />
+</task>
+<syncmlconfig>
+<TaskCoach-000001700fe2b927fb9aadb300c000a800b40097>
+<spds>
+<sources>
+<TaskCoach-000001700fe2b927fb9aadb300c000a800b40097.Tasks />
+<TaskCoach-000001700fe2b927fb9aadb300c000a800b40097.Notes />
+</sources>
+<syncml>
+<Auth />
+<Conn />
+</syncml>
+</spds>
+</TaskCoach-000001700fe2b927fb9aadb300c000a800b40097>
+</syncmlconfig>
+<guid>
+000001700fe2b927fb9aadb300c000a800b40097
+</guid>
+</tasks>

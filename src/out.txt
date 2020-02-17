@@ -1,0 +1,4 @@
+READ 356 lines from '/mnt/d/emm/Verwaltung/Tasks/tasks_2020_0210-0214.tsk'.
+- cleared 25 done tasks
+- cleared 34 efforts additionally
+WRITTEN cleared tasks into '/mnt/d/emm/Verwaltung/Tasks/tasks_2020_0217-0220.tsk'.
