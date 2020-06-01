@@ -13,35 +13,28 @@ from typing import List, Tuple
 import sys
 from enum import Enum
 
+from __init__ import logger
+from task_utils import FORMAT
+
 # typing aliases
 LINES_WITH_AMOUNT_OF_CHANGES = Tuple[List[str], int]
 
-class FORMAT(Enum):
-    # NOTE that a task is formulated in a task tag. It can be an empty or a filled element, it can also embed another
-    # task element.
-    TASK_LINE_BEGIN = "<task "
-    TAG_EMPTY_END = "/>"
-    TASK_TAG_CLOSING = "</task>"
-    PERCENTAGE_100 = 'percentageComplete="100"'
-    # all effort tags should be empty
-    EFFORT_TAG_BEGIN = "<effort "
-    NL = "\n"
 
 def clean_tasks(input_task_xml_fn: str, output_task_xml_fn: str) -> None:
 
     lines = __read_lines(input_task_xml_fn)
-    print("READ {} lines from '{}'.".format(len(lines), input_task_xml_fn))
+    logger.info("READ {} lines from '{}'.".format(len(lines), input_task_xml_fn))
 
     # clear done tasks
     cleared_lines, found_done_tasks = __remove_done_tasks(lines)
-    print("- cleared {} done tasks".format(found_done_tasks))
+    logger.info("- cleared {} done tasks".format(found_done_tasks))
 
     # clear done efforts
     cleared_lines, found_efforts = __remove_efforts(cleared_lines)
-    print("- cleared {} efforts additionally".format(found_efforts))
+    logger.info("- cleared {} efforts additionally".format(found_efforts))
 
     write_lines(cleared_lines, output_task_xml_fn)
-    print("WRITTEN cleared tasks into '{}'.".format(output_task_xml_fn))
+    logger.info("WRITTEN cleared tasks into '{}'.".format(output_task_xml_fn))
 
 
 def __read_lines(input_fn: str) -> List[str]:
@@ -122,6 +115,7 @@ def write_lines(lines: List[str], output_fn: str) -> None:
         for line in lines:
             f.write(line)
             f.write(FORMAT.NL.value)
+
 
 if __name__ == "__main__":
 
