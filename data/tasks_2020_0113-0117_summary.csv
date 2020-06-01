@@ -1,0 +1,21 @@
+Type,Category,Task name,Progress,Description,2020-01-13
+WORK,Work,Meetings,wip,,0.0
+WORK,Work,Administration,wip,,0.0
+WORK,Work,Work,wip,,0.0
+WORK,Work,"Mails, Messages, Time Logging, ...",wip,,45.0
+WORK,Work->topic2,Topic 2,wip,,0.0
+WORK,Work->topic2,Topic 2: YYY,wip,,0.0
+WORK,Work->topic1,Task 2,wip,,27.0
+WORK,Work->topic1,Task 3,wip,,193.0
+WORK,Work->topic1,Topic 1: XXX,wip,,45.0
+WORK,Work->topic1,Task 1,done,,150.0
+WORK,Work->topic1,Topic 1,wip,,0.0
+NO-WORK,Pause,Pause,wip,,0.0
+NO-WORK,Pause,Short break,wip,,16.0
+NO-WORK,Pause,Lunch break,wip,,31.0
+,,SUMMED ALL (minutes),,,507.0
+,,SUMMED ALL (hours),,,8.45
+,,SUMMED WORK (minutes),,,460.0
+,,SUMMED WORK (hours),,,7.666666666666667
+,,SUMMED NO-WORK (minutes),,,47.0
+,,SUMMED NO-WORK (hours),,,0.7833333333333333

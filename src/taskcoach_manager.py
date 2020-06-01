@@ -53,6 +53,7 @@ if __name__ == "__main__":
     
     
     arguments = get_arguments(sys.argv[1:])
+    logger.debug(f"python {' '.join(sys.argv)}")
     
     modus = arguments.modus
     input_fn = arguments.input
