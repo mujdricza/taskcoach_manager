@@ -26,8 +26,9 @@ class MODUS(Enum):
 def get_arguments(args):
     
     parser = argparse.ArgumentParser(description="This TaskCoach-manager makes the use of TaskCoach more convenient.")
-    parser.add_argument("modus", choices=[MODUS.CLEANER.value, MODUS.SUMMARY.value],
-                        help=f"Modus of the tool. Options: {MODUS.CLEANER.value}, {MODUS.SUMMARY.value}")
+    # parser.add_argument("modus", choices=[MODUS.CLEANER.value, MODUS.SUMMARY.value],
+    #                     help=f"Modus of the tool. Options: {MODUS.CLEANER.value}, {MODUS.SUMMARY.value}")
+    #
     parser.add_argument("input",
                         help="Input filename with file extension .tsk.")
     parser.add_argument("output",
@@ -35,6 +36,11 @@ def get_arguments(args):
                              f"generated."
                              f"If modus '{MODUS.SUMMARY.value}' is selected, the output file should have "
                              f"a file extension .csv or .tsv.")
+    modus = parser.add_mutually_exclusive_group(required=True)
+    modus.add_argument("-c", "--cleaner", action="store_true", dest="cleaner",
+                       help="Cleaning modus.")
+    modus.add_argument("-s", "--summary", action="store_true", dest="summary",
+                       help="Summary modus.")
     
     return parser.parse_args(args)
 
@@ -55,12 +61,21 @@ if __name__ == "__main__":
     arguments = get_arguments(sys.argv[1:])
     logger.debug(f"python {' '.join(sys.argv)}")
     
-    modus = arguments.modus
+    # modus = arguments.modus
+    # input_fn = arguments.input
+    # output_fn = arguments.output
+    #
+    # if modus == MODUS.CLEANER.value:
+    #     main_cleaner(input_fn, output_fn)
+    # elif modus == MODUS.SUMMARY.value:
+    #     main_summary(input_fn, output_fn)
+    
+    cleaner = arguments.cleaner
+    summary = arguments.summary
     input_fn = arguments.input
     output_fn = arguments.output
-    
-    if modus == MODUS.CLEANER.value:
+
+    if cleaner:
         main_cleaner(input_fn, output_fn)
-    elif modus == MODUS.SUMMARY.value:
+    elif summary:
         main_summary(input_fn, output_fn)
-    
