@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+"""
+Constants and util functions
+"""
+
+__author__ = "emm"
+__version__ = "20200607"
+
 
 from enum import Enum
 
@@ -36,10 +45,15 @@ class SUMMARY(Enum):
     PROGRESS_DONE = "done"
     
     EFFORTS = "Efforts"
+    DURATIONS = "Durations"
     
     CATEGORY_TYPE = "Type"
     WORK = "WORK"
     NO_WORK = "NO-WORK"
+    
+    START_TIME = "Start (hh:mm:ss)"  # hh:mm:ss
+    STOP_TIME = "Stop (hh:mm:ss)"    # hh:mm:ss
+    UNTRACKED = "Untracked (minutes)"  # minutes
     
 
 NOWORK_CATEGORIES = ["Pause"]

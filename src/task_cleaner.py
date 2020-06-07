@@ -4,10 +4,12 @@
 This script prepares the task-file from the previous week for being used in the current week.
 - Delete done items.
 - Clear timer.
+"""
+
 
 __author__ = "emm"
 __version__ = "20200217"
-"""
+
 
 from typing import List, Tuple
 import sys

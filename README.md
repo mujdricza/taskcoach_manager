@@ -22,12 +22,12 @@ Requirements:
 python taskcoach_manager.py <modus> <input_fn> <output_fn>
 ```
 If `modus` is
-*  `summary`: the script will extract a per-day summary on the taken efforts.
-* `cleaner`: the script recycles the task file for further use.
+* `-s` or `--summary`: the script will extract a per-day summary on the taken efforts.
+* `-c` or `--cleaner`: the script recycles the task file for further use.
 
 ### Summarizing the efforts
 
-The python script with modus `summary`
+The python script with modus `-s` or `--summary`
 - takes a given `.tsk` file,
 - extracts the efforts (tracked time) to all tasks,
 - organizes the efforts per day in a tabular form,
@@ -35,7 +35,7 @@ The python script with modus `summary`
 
 Run:
 ```
-python taskcoach_manager.py summary <input.tsk> <output_fn.csv>
+python taskcoach_manager.py -s <input.tsk> <output_fn.csv>
 ```
 
 Note only each tasks or subtasks which has a category will be considered!
@@ -44,7 +44,7 @@ Note only each tasks or subtasks which has a category will be considered!
 
 ### Recycling the task-file
 
-The python script with modus `cleaner`
+The python script with modus `-c` or `--cleaner`
 - takes a given `.tsk` file, 
 - removes the done taks (marked with `percentageComplete="100"` in the attribute list),
 - removes all further efforts of not done tasks, 
@@ -55,7 +55,7 @@ The output file can be opened in the TaskCoach for further use.
 
 
 ```
-python taskcoach_manager.py cleaner <input.tsk> <output_fn.tsk>
+python taskcoach_manager.py -c <input.tsk> <output_fn.tsk>
 ```
 
 # Progress
@@ -64,9 +64,13 @@ python taskcoach_manager.py cleaner <input.tsk> <output_fn.tsk>
 - get description into summary
 - check daily non-tracked time slots 
 - consider also tasks without any category in the summary
-- 
+
 
 ## Versions
+- 20200607:
+  * enhanced command line parameters for modus
+  * start and stop time per day in daily summary overview
+  * tasks without an effort duration are not printed any more
 - 20200601:
   * daily summary overview
 - 20200217: 

@@ -7,14 +7,11 @@ NOTE:
 - only efforts with a given category are considered --> Make sure that all task items with effort have a category assigned!
 - categories not considered as "work" are hard coded now in task_utils.NOWORK_CATEGORIES
 
-TODO:
-- insert description, too
-- maybe drop task without any effort
-
+"""
 
 __author__ = "emm"
-__version__ = "20200601"
-"""
+__version__ = "20200607"
+
 
 import xml.dom.minidom as mdom
 import os
@@ -138,7 +135,8 @@ def __get_task_info_rec(current_task_node, current_task_id=None, task_dict={}):
             
         task_dict[task_id] = {SUMMARY.PROGRESS.value : task_progress,
                               SUMMARY.TASK_NAME.value : task_subject,
-                              SUMMARY.EFFORTS.value : {},
+                              SUMMARY.EFFORTS.value : {},  # day : start : stop
+                              SUMMARY.DURATIONS.value : {},  # day : minutes
                               SUMMARY.DESCRIPTION.value: ""}
         
         if current_task_node.hasChildNodes():
@@ -164,14 +162,16 @@ def __get_task_info_rec(current_task_node, current_task_id=None, task_dict={}):
         assert start_val != None
         assert stop_val != None
         
-        day_dict = __get_efforts_per_day(start_val, stop_val)
+        day_dict = __get_effort_time(start_val, stop_val)
         for day, minutes in day_dict.items():
-            task_dict[current_task_id][SUMMARY.EFFORTS.value].setdefault(day, 0)
-            task_dict[current_task_id][SUMMARY.EFFORTS.value][day] += minutes
-    
-
-
-def __get_efforts_per_day(start_val:str, stop_val:str) -> Dict[str, int]:
+            task_dict[current_task_id][SUMMARY.DURATIONS.value].setdefault(day, 0)
+            task_dict[current_task_id][SUMMARY.DURATIONS.value][day] += minutes
+            
+            task_dict[current_task_id][SUMMARY.EFFORTS.value].setdefault(day, {})
+            task_dict[current_task_id][SUMMARY.EFFORTS.value][day][start_val] = stop_val
+        
+        
+def __get_effort_time(start_val:str, stop_val:str) -> Dict[str, int]:
     """NOTE that for now, only the effort on the first day is considered. E.g., if you are working over night, only the part of the effort until midnight is counted.
     
     :param start_val:
@@ -244,28 +244,88 @@ def __get_category_info_rec(current_category_node,
 def __get_days(task_dict):
     
     days = set()
-    # task_dict: { current_task_id : { SUMMARY.EFFORTS.value: {day:minutes} } }
-    for task_id, effort_dict in task_dict.items():
-        days |= effort_dict[SUMMARY.EFFORTS.value].keys()
+    # task_dict: { current_task_id : { SUMMARY.DURATIONS.value: {day:minutes} } }
+    for task_id, duration_dict in task_dict.items():
+        days |= duration_dict[SUMMARY.DURATIONS.value].keys()
     
     return days
 
-def __build_summary_df(category_dict, task_dict, nowork_categories=NOWORK_CATEGORIES) -> pd.DataFrame:
+
+def __is_earlier(datum, saved_datum):
+    if saved_datum is None:
+        return True
+    day, time = datum.split()
+    saved_day, saved_time = saved_datum.split()
+    
+    if day < saved_day:
+        return True
+    elif day == saved_day:
+        if time < saved_time:
+            return True
+    return False
+
+
+def __is_later(datum, saved_datum):
+    if saved_datum is None:
+        return True
+    
+    day, time = datum.split()
+    saved_day, saved_time = saved_datum.split()
+    
+    if day > saved_day:
+        return True
+    elif day == saved_day:
+        if time > saved_time:
+            return True
+    return False
+
+
+def __get_offsets_per_day(task_dict):
     
     days = sorted(list(__get_days(task_dict)))
     
-    item_list = []
+    offsets_per_day_dict = {day: {SUMMARY.START_TIME.value:None,
+                                  SUMMARY.STOP_TIME.value:None,
+                                  SUMMARY.UNTRACKED.value:"(todo)"  # TODO
+                                  } for day in days}
+    
+    for task_id, task_info_dict in task_dict.items():
+        for day, start2stop_dict in task_info_dict[SUMMARY.EFFORTS.value].items():
+            for start, stop in start2stop_dict.items():
+                saved_start = offsets_per_day_dict[day][SUMMARY.START_TIME.value]
+                saved_stop = offsets_per_day_dict[day][SUMMARY.STOP_TIME.value]
+                
+                if __is_earlier(start, saved_start):
+                    offsets_per_day_dict[day][SUMMARY.START_TIME.value] = start
+                if __is_later(stop, saved_stop):
+                    offsets_per_day_dict[day][SUMMARY.STOP_TIME.value] = stop
+    
+    return offsets_per_day_dict
+                
+    
 
+def __build_summary_df(category_dict,
+                       task_dict,
+                       nowork_categories=NOWORK_CATEGORIES,
+                       drop_task_without_effort=True) -> pd.DataFrame:
+    
+    days = sorted(list(__get_days(task_dict)))
+    logger.debug(f"Days: {days}")
+    item_list = []
+    
     for category, task_id_list in category_dict.items():
         label = SUMMARY.NO_WORK.value if category in nowork_categories else SUMMARY.WORK.value
         
         for task_id in task_id_list:
             task_effort_dict = task_dict[task_id]
+            if drop_task_without_effort:
+                if not task_effort_dict[SUMMARY.DURATIONS.value]:
+                    continue
             task_name = task_effort_dict[SUMMARY.TASK_NAME.value]
-            efforts_per_day_dict = task_effort_dict[SUMMARY.EFFORTS.value]
+            duration_per_day_dict = task_effort_dict[SUMMARY.DURATIONS.value]
             progress = task_effort_dict[SUMMARY.PROGRESS.value]
             description = task_effort_dict[SUMMARY.DESCRIPTION.value]
-            
+    
             item = {
                 SUMMARY.CATEGORY_TYPE.value : label,
                 SUMMARY.CATEGORY.value : category,
@@ -274,15 +334,53 @@ def __build_summary_df(category_dict, task_dict, nowork_categories=NOWORK_CATEGO
                 SUMMARY.DESCRIPTION.value : description
             }
             
+            # duration
             for day in days:
-                effort = 0
-                if day in efforts_per_day_dict:
-                    effort = efforts_per_day_dict[day]
-                item[day] = effort
+                duration = 0
+                if day in duration_per_day_dict:
+                    duration = duration_per_day_dict[day]
+                item[day] = duration
             
             item_list.append(item)
+
+    item_start = {
+        SUMMARY.CATEGORY_TYPE.value: "",
+        SUMMARY.CATEGORY.value: "",
+        SUMMARY.TASK_NAME.value: SUMMARY.START_TIME.value,
+        SUMMARY.PROGRESS.value: "",
+        SUMMARY.DESCRIPTION.value: ""
+    }
+    item_stop = {
+        SUMMARY.CATEGORY_TYPE.value: "",
+        SUMMARY.CATEGORY.value: "",
+        SUMMARY.TASK_NAME.value: SUMMARY.STOP_TIME.value,
+        SUMMARY.PROGRESS.value: "",
+        SUMMARY.DESCRIPTION.value: ""
+    }
+    item_untracked = {
+        SUMMARY.CATEGORY_TYPE.value: "",
+        SUMMARY.CATEGORY.value: "",
+        SUMMARY.TASK_NAME.value: SUMMARY.UNTRACKED.value,
+        SUMMARY.PROGRESS.value: "",
+        SUMMARY.DESCRIPTION.value: ""
+    }
+
+    # duration
+    offsets_per_day_dict = __get_offsets_per_day(task_dict)
+    for day in days:
+        item_start[day] = offsets_per_day_dict[day][SUMMARY.START_TIME.value].split()[1]
+        item_stop[day] = offsets_per_day_dict[day][SUMMARY.STOP_TIME.value].split()[1]
+        item_untracked[day] = offsets_per_day_dict[day][SUMMARY.UNTRACKED.value]
+    
+    item_list_2 = []
+    item_list_2.append(item_start)
+    item_list_2.append(item_stop)
+    item_list_2.append(item_untracked)
     
     task_summary_df = pd.DataFrame(item_list)
+    to_append_df_list = []
+    offsets_df = pd.DataFrame(item_list_2)
+    to_append_df_list.append(offsets_df)
     
     # get some overview measures, too
     work_sums_minutes = task_summary_df.sum(numeric_only=True, axis=0)
@@ -294,9 +392,11 @@ def __build_summary_df(category_dict, task_dict, nowork_categories=NOWORK_CATEGO
     work_sums_minutes_df = pd.DataFrame([work_sums_minutes], columns=task_summary_df.columns)
     work_sums_hours_df = pd.DataFrame([work_sums_hours], columns=task_summary_df.columns)
 
-    task_summary_df = task_summary_df.append(work_sums_minutes_df).reset_index(drop=True)
-    task_summary_df = task_summary_df.append(work_sums_hours_df).reset_index(drop=True)
-
+    # task_summary_df = task_summary_df.append(work_sums_minutes_df).reset_index(drop=True)
+    # task_summary_df = task_summary_df.append(work_sums_hours_df).reset_index(drop=True)
+    
+    to_append_df_list.append(work_sums_minutes_df)
+    to_append_df_list.append(work_sums_hours_df)
 
     for category_type in [SUMMARY.WORK.value, SUMMARY.NO_WORK.value]:
         work_df = task_summary_df[task_summary_df[SUMMARY.CATEGORY_TYPE.value]==category_type]
@@ -310,9 +410,15 @@ def __build_summary_df(category_dict, task_dict, nowork_categories=NOWORK_CATEGO
         work_sums_minutes_df = pd.DataFrame([work_sums_minutes], columns = task_summary_df.columns)
         work_sums_hours_df = pd.DataFrame([work_sums_hours], columns = task_summary_df.columns)
 
-        task_summary_df = task_summary_df.append(work_sums_minutes_df).reset_index(drop=True)
-        task_summary_df = task_summary_df.append(work_sums_hours_df).reset_index(drop=True)
+        # task_summary_df = task_summary_df.append(work_sums_minutes_df).reset_index(drop=True)
+        # task_summary_df = task_summary_df.append(work_sums_hours_df).reset_index(drop=True)
 
+        to_append_df_list.append(work_sums_minutes_df)
+        to_append_df_list.append(work_sums_hours_df)
+    
+    for to_append_df in to_append_df_list:
+        task_summary_df = task_summary_df.append(to_append_df).reset_index(drop=True)
+    
     return task_summary_df
 
 

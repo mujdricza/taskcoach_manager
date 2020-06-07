@@ -5,8 +5,11 @@ This script organizes the TaskCoach manager.
 
 The tool TaskCoach is a freely available time tracker and task manager (https://www.taskcoach.org/).
 
-
 """
+
+__author__ = "emm"
+__version__ = "20200607"
+
 
 import argparse
 from enum import Enum
