@@ -61,6 +61,9 @@ python taskcoach_manager.py -c <input.tsk> <output_fn.tsk>
 # Progress
 
 ## Todos
+- use default output file + optional output file parameter
+- make sure the file extensions are as expected
+- make sure the user doesn't overwrite the original file
 - get description into summary
 - check daily non-tracked time slots 
 - consider also tasks without any category in the summary
