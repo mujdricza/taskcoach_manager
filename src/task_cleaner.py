@@ -8,22 +8,29 @@ This script prepares the task-file from the previous week for being used in the 
 
 
 __author__ = "emm"
-__version__ = "20200217"
+__version__ = "20200621"  # "20200217"
 
 
-from typing import List, Tuple
+import os
+from typing import List, Tuple, Union
 import sys
-from enum import Enum
 
 from __init__ import logger
 from task_utils import FORMAT
 
 # typing aliases
 LINES_WITH_AMOUNT_OF_CHANGES = Tuple[List[str], int]
+TSK_EXTENSION = ".tsk"
+OUTPUT_EXTENSION = "_cleaned" + TSK_EXTENSION
 
 
-def clean_tasks(input_task_xml_fn: str, output_task_xml_fn: str) -> None:
-
+def clean_tasks(input_task_xml_fn: str, output_task_xml_fn: Union[str, None]) -> None:
+    
+    msg = f"The output file name extension should be '{TSK_EXTENSION}'."
+    if not (output_task_xml_fn is None or output_task_xml_fn.endswith(TSK_EXTENSION)):
+        logger.error(msg)
+        sys.exit(1)
+    
     lines = __read_lines(input_task_xml_fn)
     logger.info("READ {} lines from '{}'.".format(len(lines), input_task_xml_fn))
 
@@ -34,7 +41,13 @@ def clean_tasks(input_task_xml_fn: str, output_task_xml_fn: str) -> None:
     # clear done efforts
     cleared_lines, found_efforts = __remove_efforts(cleared_lines)
     logger.info("- cleared {} efforts additionally".format(found_efforts))
-
+    
+    if output_task_xml_fn is None:
+        output_task_xml_fn = os.path.splitext(input_task_xml_fn)[0] + OUTPUT_EXTENSION
+    else:
+        output_path = os.path.realpath(os.path.dirname(output_task_xml_fn))
+        os.makedirs(output_path, exist_ok=True)
+        
     write_lines(cleared_lines, output_task_xml_fn)
     logger.info("WRITTEN cleared tasks into '{}'.".format(output_task_xml_fn))
 
@@ -91,7 +104,8 @@ def __remove_done_tasks(lines: List[str]) -> LINES_WITH_AMOUNT_OF_CHANGES: # Lis
 
 def __remove_efforts(lines: List[str]) -> LINES_WITH_AMOUNT_OF_CHANGES: # List[str]:
 
-    # Stragtegy: We search for a FORMAT.EFFORT_TAG_BEGIN.value value, which is assumed to be an empty tag on just one line.
+    # Stragtegy: We search for a FORMAT.EFFORT_TAG_BEGIN.value value,
+    #            which is assumed to be an empty tag on just one line.
     IS_THERE_ANY_DONE_CASE = True
 
     line_idx_not_relevant = []
@@ -119,18 +133,19 @@ def write_lines(lines: List[str], output_fn: str) -> None:
             f.write(FORMAT.NL.value)
 
 
-if __name__ == "__main__":
-
-    args = sys.argv
-
-    # default input
-    #input_path = "/mnt/d/emm/Verwaltung/Tasks/"
-    input_path = "../data/"
-    input_fn = input_path + "tasks_2020_0210-0214.tsk"
-    output_fn = input_path + "tasks_2020_0217-0220.tsk"
-
-    if len(args) > 2:
-        input_fn = args[1]
-        output_fn = args[2]
-
-    clean_tasks(input_fn, output_fn)
+# # for inpection purposes only
+# if __name__ == "__main__":
+#
+#     args = sys.argv
+#
+#     # default input
+#     #input_path = "/mnt/d/emm/Verwaltung/Tasks/"
+#     input_path = "../data/"
+#     input_fn = input_path + "tasks_2020_0210-0214.tsk"
+#     output_fn = input_path + "tasks_2020_0217-0220.tsk"
+#
+#     if len(args) > 2:
+#         input_fn = args[1]
+#         output_fn = args[2]
+#
+#     clean_tasks(input_fn, output_fn)

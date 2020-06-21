@@ -10,7 +10,7 @@ NOTE:
 """
 
 __author__ = "emm"
-__version__ = "20200607"
+__version__ = "20200621"  # "20200607"
 
 
 import xml.dom.minidom as mdom
@@ -19,17 +19,25 @@ from pprint import pformat
 from datetime import datetime
 import time
 import pandas as pd
+import sys
 
 from __init__ import logger
 from task_utils import FORMAT, SUMMARY, NOWORK_CATEGORIES
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Union
 # typing aliases
 Document = mdom.Document
 LINES_WITH_AMOUNT_OF_CHANGES = Tuple[List[str], int]
 
+CSV_EXTENSION = ".csv"
+OUTPUT_EXTENSION = "_summary" + CSV_EXTENSION
 
 
-def summarize_tasks(input_task_xml_fn: str, output_csv_fn: str) -> None:
+def summarize_tasks(input_task_xml_fn: str, output_csv_fn: Union[str, None]) -> None:
+    
+    msg = f"The output file name extension should be '{CSV_EXTENSION}'."
+    if not (output_csv_fn is None or output_csv_fn.endswith(CSV_EXTENSION)):
+        logger.error(msg)
+        sys.exit(1)
     
     logger.info(f"READING doctree from '{input_task_xml_fn}'")
     doctree = __read_xml(input_task_xml_fn)
@@ -42,6 +50,13 @@ def summarize_tasks(input_task_xml_fn: str, output_csv_fn: str) -> None:
     
     logger.info("BUILDING SUMMARY TABLE")
     task_summary_df = __build_summary_df(category_dict, task_dict)
+    
+    if output_csv_fn is None:
+        output_csv_fn = os.path.splitext(input_task_xml_fn)[0] + OUTPUT_EXTENSION
+    else:
+        output_path = os.path.realpath(os.path.dirname(output_csv_fn))
+        os.makedirs(output_path, exist_ok=True)
+        
     
     logger.info(f"WRITING SUMMARY to '{output_csv_fn}'")
     __write_summary(task_summary_df, output_csv_fn)
@@ -424,7 +439,7 @@ def __build_summary_df(category_dict,
 
 def __write_summary(overview_df: pd.DataFrame, output_fn: str) -> None:
     
-    path_name = os.path.dirname(output_fn)
+    path_name = os.path.realpath(os.path.dirname(output_fn))
     os.makedirs(path_name, exist_ok=True)
     
     with open(output_fn, "w") as f:
