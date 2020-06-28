@@ -51,7 +51,7 @@ python taskcoach_manager.py -c <input_fn.tsk> [<output_fn.tsk>]
 ```
 
 NOTES:
-- If a done task has the category "recurring", it won't be removed, but only its 'done' status.
+- If a 'done' task has the category "recurring", it won't be removed, but only its 'done' status.
   * The name of the "recurrent" category can be adjusted in the code (`task_utils.SPECIAL_CATEGORIES.RECURRENT`).
 
 # Progress
