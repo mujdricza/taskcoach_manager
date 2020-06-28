@@ -29,7 +29,7 @@ class MODUS(Enum):
 def get_arguments(args):
     
     parser = argparse.ArgumentParser(description="This TaskCoach-manager makes the use of TaskCoach more convenient.")
-    parser.add_argument("input",
+    parser.add_argument("input_fn",
                         help="Input filename with file extension .tsk.")
     parser.add_argument("-o", "--output_fn",
                         help=f"Output filename. "
@@ -65,11 +65,15 @@ if __name__ == "__main__":
     
     cleaner = arguments.cleaner
     summary = arguments.summary
-    input_fn = arguments.input
+    input_fn = arguments.input_fn
     
     output_fn = None
     if arguments.output_fn:
         output_fn = arguments.output_fn
+        if os.path.realpath(output_fn) == os.path.realpath(input_fn):
+            msg = f"The outputs would overwrite the input file '{input_fn}'!\n" \
+                  f"Please take another file name for the outputs."
+            sys.exit(msg)
     
     if cleaner:
         main_cleaner(input_fn, output_fn)

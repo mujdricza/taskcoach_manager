@@ -316,7 +316,6 @@ def __get_offsets_per_day(task_dict):
                     offsets_per_day_dict[day][SUMMARY.STOP_TIME.value] = stop
     
     return offsets_per_day_dict
-                
     
 
 def __build_summary_df(category_dict,
@@ -349,12 +348,22 @@ def __build_summary_df(category_dict,
                 SUMMARY.DESCRIPTION.value : description
             }
             
-            # duration
+            # overall duration
+            overall_duration = 0
+            
+            # per-day duration
             for day in days:
                 duration = 0
                 if day in duration_per_day_dict:
                     duration = duration_per_day_dict[day]
+                    # if the user accidentally set an effort end time before the effort start time,
+                    # the duration will be negative
+                    if duration < 0:
+                        logger.warning(f"Negative duration for task '{task_name}': {duration} minutes")
+                        logger.warning(f"{task_effort_dict}")
+                    overall_duration += duration
                 item[day] = duration
+            item[SUMMARY.OVERALL_DURATION.value] = overall_duration
             
             item_list.append(item)
 
@@ -390,12 +399,16 @@ def __build_summary_df(category_dict,
     item_list_2 = []
     item_list_2.append(item_start)
     item_list_2.append(item_stop)
-    item_list_2.append(item_untracked)
+    # item_list_2.append(item_untracked)  # TODO
     
     task_summary_df = pd.DataFrame(item_list)
+    
     to_append_df_list = []
     offsets_df = pd.DataFrame(item_list_2)
     to_append_df_list.append(offsets_df)
+    
+    # overall duration
+    
     
     # get some overview measures, too
     work_sums_minutes = task_summary_df.sum(numeric_only=True, axis=0)

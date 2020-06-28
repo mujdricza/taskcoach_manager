@@ -46,6 +46,7 @@ class SUMMARY(Enum):
     
     EFFORTS = "Efforts"
     DURATIONS = "Durations"
+    OVERALL_DURATION = "Period duration (min)"
     
     CATEGORY_TYPE = "Type"
     WORK = "WORK"

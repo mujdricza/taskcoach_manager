@@ -54,8 +54,7 @@ python taskcoach_manager.py -c <input_fn.tsk> [<output_fn.tsk>]
 
 ## Todos
 
-* check efforts with overlapping tracked time 
-* make sure the user doesn't overwrite the original file
+* check efforts with overlapping tracked time (which overlapping trackings are probably accidentally done)
 * get description into summary
 * check daily non-tracked time slots 
 * consider also tasks without any category in the summary
@@ -63,6 +62,10 @@ python taskcoach_manager.py -c <input_fn.tsk> [<output_fn.tsk>]
 
 ## Versions
 
+- 20200628:
+  * count the overall efforts for each task during the tracked period, too
+  * make sure the user doesn't overwrite the original file
+  * handling negative duration with a warning (if the user accidentally set an effort end time before the effort start time, the duration will be negative)
 - 20200620:
   * use default output file + optional output file parameter
   * make sure the file extensions are as expected
