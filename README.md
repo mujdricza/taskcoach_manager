@@ -18,13 +18,6 @@ Requirements:
 - pandas
 
 
-```
-python taskcoach_manager.py <modus> <input_fn> <output_fn>
-```
-If `modus` is
-* `-s` or `--summary`: the script will extract a per-day summary on the taken efforts in a tabular format.
-* `-c` or `--cleaner`: the script makes a copy of the tracked tasks without the already done efforts and done tasks, and thus recycles the task file for further use; e.g. if someone periodically tracks similar tasks. A new, cleaned task file is then ready to further use.
-
 ### Summarizing the efforts
 
 The python script with modus `-s` or `--summary`
@@ -38,7 +31,10 @@ Run:
 python taskcoach_manager.py -s <input_fn.tsk> [<output_fn.csv>]
 ```
 
-Note that only tasks or subtasks with a category will be considered!
+NOTES:
+ - Only tasks or subtasks with a category will be considered for the summary.
+ - The category "Pause" is considered to be a "not working" category. The efforts with this category will be summarized separately. 
+   * The "not working" categories can be adjusted in the code (`task_utils.NOWORK_CATEGORIES`)
 
 ### Recycling the task-file
 
@@ -46,7 +42,7 @@ The python script with modus `-c` or `--cleaner`
 - takes a given `.tsk` file, 
 - removes the done taks (marked with `percentageComplete="100"` in the attribute list of the task),
 - removes all further efforts of not done tasks, 
-- and writes the remaining tasks in another `.tsk` file.
+- and writes the remaining tasks in another `.tsk` file. 
 
 The output file can be opened in the TaskCoach for further use.
 
