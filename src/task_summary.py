@@ -61,7 +61,7 @@ def summarize_tasks(input_task_xml_fn: str, output_csv_fn: Union[str, None]) -> 
     logger.info(f"WRITING SUMMARY to '{output_csv_fn}'")
     __write_summary(task_summary_df, output_csv_fn)
     
-    logger.info("WRITTEN task summary into '{}'.".format(output_csv_fn))
+    logger.info("DONE. SEE task summary in '{}'.".format(output_csv_fn))
 
 
 def __read_xml(input_fn: str) -> Document:

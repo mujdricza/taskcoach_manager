@@ -49,7 +49,7 @@ def clean_tasks(input_task_xml_fn: str, output_task_xml_fn: Union[str, None]) ->
         os.makedirs(output_path, exist_ok=True)
         
     write_lines(cleared_lines, output_task_xml_fn)
-    logger.info("WRITTEN cleared tasks into '{}'.".format(output_task_xml_fn))
+    logger.info("DONE. SEE cleared tasks in '{}'.".format(output_task_xml_fn))
 
 
 def __read_lines(input_fn: str) -> List[str]:

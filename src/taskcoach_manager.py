@@ -29,22 +29,22 @@ class MODUS(Enum):
 def get_arguments(args):
     
     parser = argparse.ArgumentParser(description="This TaskCoach-manager makes the use of TaskCoach more convenient.")
-    # parser.add_argument("modus", choices=[MODUS.CLEANER.value, MODUS.SUMMARY.value],
-    #                     help=f"Modus of the tool. Options: {MODUS.CLEANER.value}, {MODUS.SUMMARY.value}")
-    #
     parser.add_argument("input",
                         help="Input filename with file extension .tsk.")
     parser.add_argument("-o", "--output_fn",
                         help=f"Output filename. "
                              f"This should have the file extension '.tsk' in modus '{MODUS.CLEANER.value}', "
                              f"and the file extension '.csv' in modus '{MODUS.SUMMARY.value}'. "
-                             f"If not given, the outputs will be saved in the folder of the input file.")
+                             f"If not given, the outputs will be automatically saved in the folder of the input file.")
     modus = parser.add_mutually_exclusive_group(required=True)
     modus.add_argument("-c", "--cleaner", action="store_true", dest="cleaner",
-                       help="Cleaning modus.")
+                       help="Cleaning modus: it takes a .tsk file and removes all efforts and done tasks; "
+                            "this functionality is beneficial if someone tracks her/his tasks periodically, "
+                            "e.g. each week, and would like to see an overview of the efforts")
     modus.add_argument("-s", "--summary", action="store_true", dest="summary",
-                       help="Summary modus.")
-    
+                       help="Summary modus: a table-formatted per-day summary on the efforts will be extracted")
+    parser.add_argument("-d", "--debug", action="store_true",
+                        help="for printing debugging information")
     return parser.parse_args(args)
 
 
@@ -59,7 +59,9 @@ def main_summary(input_fn: str, output_fn: str) -> None:
 if __name__ == "__main__":
     
     arguments = get_arguments(sys.argv[1:])
-    logger.debug(f"python {' '.join(sys.argv)}")
+    if arguments.debug:
+        logger.setLevel(logging.DEBUG)
+    logger.debug(f"RUNNING: python {' '.join(sys.argv)}")
     
     cleaner = arguments.cleaner
     summary = arguments.summary
@@ -68,7 +70,6 @@ if __name__ == "__main__":
     output_fn = None
     if arguments.output_fn:
         output_fn = arguments.output_fn
-        
     
     if cleaner:
         main_cleaner(input_fn, output_fn)
