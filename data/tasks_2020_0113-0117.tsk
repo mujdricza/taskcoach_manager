@@ -10,8 +10,11 @@
 <effort id="7cc220cf-a444-11ea-adbb-7cb27d86f5b4" start="2020-01-13 12:14:24" status="1" stop="2020-01-13 12:45:24" />
 </task>
 </task>
-<task actualstartdate="2020-06-01 22:30:15.999000" creationDateTime="2020-02-07 16:53:49.882000" expandedContexts="('taskviewer',)" id="083b799e-49c2-11ea-b4f2-7cb27d86f5b0" modificationDateTime="2020-06-01 22:30:15.998000" prerequisites="adb29eee-a443-11ea-9163-7cb27d86f5b4" status="1" subject="Meetings">
-<task actualstartdate="2020-06-01 22:29:59.881000" creationDateTime="2020-05-26 18:31:22.363000" id="55d78cae-9f6e-11ea-b707-7cb27d86f5b4" modificationDateTime="2020-06-01 22:29:59.881000" status="1" subject="Topic 1: XXX">
+<task creationDateTime="2020-02-07 16:53:49.882000" expandedContexts="('taskviewer',)" id="083b799e-49c2-11ea-b4f2-7cb27d86f5b0" modificationDateTime="2020-06-28 14:01:12.575000" prerequisites="adb29eee-a443-11ea-9163-7cb27d86f5b4" status="1" subject="Meetings">
+<task actualstartdate="2020-01-13 14:03:24" completiondate="2020-06-28 14:01:57.338000" creationDateTime="2020-06-28 14:01:12.574000" id="0fafc9de-b937-11ea-a6f9-7cb27d86f5b4" modificationDateTime="2020-06-28 14:04:24.934000" percentageComplete="100" status="1" subject="Daily Meeting">
+<effort id="82579861-b937-11ea-aea0-7cb27d86f5b4" start="2020-01-13 14:30:18" status="1" stop="2020-01-13 14:45:17" />
+</task>
+<task creationDateTime="2020-05-26 18:31:22.363000" id="55d78cae-9f6e-11ea-b707-7cb27d86f5b4" modificationDateTime="2020-06-01 22:29:59.881000" status="1" subject="Topic 1: XXX">
 <description>
 Topic 1 ...
 </description>
@@ -19,8 +22,8 @@ Topic 1 ...
 </task>
 <task creationDateTime="2020-05-24 17:55:20.902000" id="f8af465e-9dd6-11ea-8788-7cb27d86f5b4" modificationDateTime="2020-06-01 22:09:14.621000" status="1" subject="Topic 2: YYY" />
 </task>
-<task actualstartdate="2020-06-01 22:30:10.478000" creationDateTime="2020-02-04 12:11:45.102000" expandedContexts="('taskviewer',)" id="2109bede-473f-11ea-8cdf-7cb27d86f5b0" modificationDateTime="2020-06-01 22:30:10.477000" prerequisites="083b799e-49c2-11ea-b4f2-7cb27d86f5b0 f8af465e-9dd6-11ea-8788-7cb27d86f5b4" status="1" subject="Administration">
-<task actualstartdate="2020-01-13 00:10:14" creationDateTime="2020-02-05 09:44:40.600000" id="bfa35980-47f3-11ea-8147-7cb27d86f5b0" modificationDateTime="2020-06-01 22:22:33.865000" status="1" subject="Mails, Messages, Time Logging, ...">
+<task creationDateTime="2020-02-04 12:11:45.102000" expandedContexts="('taskviewer',)" id="2109bede-473f-11ea-8cdf-7cb27d86f5b0" modificationDateTime="2020-06-01 22:30:10.477000" prerequisites="083b799e-49c2-11ea-b4f2-7cb27d86f5b0 f8af465e-9dd6-11ea-8788-7cb27d86f5b4" status="1" subject="Administration">
+<task creationDateTime="2020-02-05 09:44:40.600000" id="bfa35980-47f3-11ea-8147-7cb27d86f5b0" modificationDateTime="2020-06-28 14:16:44.655000" status="1" subject="Mails, Messages, Time Logging, ...">
 <effort id="9472e2f0-a444-11ea-98bf-7cb27d86f5b4" start="2020-01-13 12:45:04" status="1" stop="2020-01-13 13:15:04" />
 <effort id="e764f9de-a443-11ea-ad9f-7cb27d86f5b4" start="2020-01-13 09:00:14" status="1" stop="2020-01-13 09:15:14" />
 </task>
@@ -40,7 +43,7 @@ Description
 <description>
 Description Task 3
 </description>
-<effort id="c0ed25c0-a444-11ea-bb85-7cb27d86f5b4" start="2020-01-13 14:30:18" status="1" stop="2020-01-13 16:00:19" />
+<effort id="c0ed25c0-a444-11ea-bb85-7cb27d86f5b4" start="2020-01-13 14:45:18" status="1" stop="2020-01-13 16:00:19" />
 <effort id="e45887c0-a444-11ea-bdbd-7cb27d86f5b4" start="2020-01-13 16:17:18" status="1" stop="2020-01-13 18:00:18" />
 </task>
 <task actualstartdate="2020-01-13 00:25:34" completiondate="2020-06-01 22:13:23.482000" creationDateTime="2020-05-26 09:35:14.445000" id="7044cbcf-9f23-11ea-a397-7cb27d86f5b4" modificationDateTime="2020-06-01 22:19:18.006000" percentageComplete="100" status="1" subject="Task 1">
@@ -51,7 +54,8 @@ Task 1 Description
 </task>
 </task>
 </task>
-<category categorizables="083b799e-49c2-11ea-b4f2-7cb27d86f5b0 2109bede-473f-11ea-8cdf-7cb27d86f5b0 9c1ccc6e-4745-11ea-bfbf-7cb27d86f5b0 bfa35980-47f3-11ea-8147-7cb27d86f5b0" creationDateTime="2020-02-18 10:24:45.383000" expandedContexts="('categoryviewer', 'categoryviewerintaskeditor')" id="805edd6e-5230-11ea-b2a1-7cb27d86f5b1" modificationDateTime="2020-02-18 10:30:48.253000" status="1" subject="Work">
+<category categorizables="0fafc9de-b937-11ea-a6f9-7cb27d86f5b4 bfa35980-47f3-11ea-8147-7cb27d86f5b0" creationDateTime="2020-06-28 14:00:50.124000" expandedContexts="('categoryviewerintaskeditor',)" id="024e30c0-b937-11ea-abbf-7cb27d86f5b4" modificationDateTime="2020-06-28 14:00:52.822000" status="1" subject="recurring" />
+<category categorizables="083b799e-49c2-11ea-b4f2-7cb27d86f5b0 0fafc9de-b937-11ea-a6f9-7cb27d86f5b4 2109bede-473f-11ea-8cdf-7cb27d86f5b0 9c1ccc6e-4745-11ea-bfbf-7cb27d86f5b0 bfa35980-47f3-11ea-8147-7cb27d86f5b0" creationDateTime="2020-02-18 10:24:45.383000" expandedContexts="('categoryviewer', 'categoryviewerintaskeditor')" id="805edd6e-5230-11ea-b2a1-7cb27d86f5b1" modificationDateTime="2020-02-18 10:30:48.253000" status="1" subject="Work">
 <category categorizables="adb29eee-a443-11ea-9163-7cb27d86f5b4 f8af465e-9dd6-11ea-8788-7cb27d86f5b4" creationDateTime="2020-02-18 10:30:43.376000" expandedContexts="('categoryviewerintaskeditor',)" id="55c04300-5231-11ea-92eb-7cb27d86f5b1" modificationDateTime="2020-06-01 22:05:02.368000" status="1" subject="topic2" />
 <category categorizables="1ea06fc0-a183-11ea-aef3-7cb27d86f5b4 4af6dd4f-a0c7-11ea-aab8-7cb27d86f5b4 55d78cae-9f6e-11ea-b707-7cb27d86f5b4 7044cbcf-9f23-11ea-a397-7cb27d86f5b4 ea5f7cb0-9dd6-11ea-b4b0-7cb27d86f5b4" creationDateTime="2020-02-18 10:30:48.252000" expandedContexts="('categoryviewerintaskeditor',)" id="58a86ecf-5231-11ea-bd01-7cb27d86f5b1" modificationDateTime="2020-06-01 22:04:57.687000" status="1" subject="topic1" />
 </category>

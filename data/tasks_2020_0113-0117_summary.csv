@@ -1,17 +1,17 @@
-Type,Category,Task name,Progress,Description,2020-01-13
-WORK,Work,"Mails, Messages, Time Logging, ...",wip,,45
-WORK,Work->topic1,Task 2,wip,,27
-WORK,Work->topic1,Task 3,wip,,193
-WORK,Work->topic1,Topic 1: XXX,wip,,45
-WORK,Work->topic1,Task 1,done,,150
-NO-WORK,Pause,Short break,wip,,16
-NO-WORK,Pause,Lunch break,wip,,31
-,,Start (hh:mm:ss),,,09:00:14
-,,Stop (hh:mm:ss),,,18:00:18
-,,Untracked (minutes),,,
-,,SUMMED ALL (minutes),,,507
-,,SUMMED ALL (hours),,,8.45
-,,SUMMED WORK (minutes),,,460
-,,SUMMED WORK (hours),,,7.666666666666667
-,,SUMMED NO-WORK (minutes),,,47
-,,SUMMED NO-WORK (hours),,,0.7833333333333333
+Type,Category,Task name,Progress,Description,2020-01-13,Period duration (min)
+WORK,"recurring,Work",Daily Meeting,done,,14,14.0
+WORK,"recurring,Work","Mails, Messages, Time Logging, ...",wip,,45,45.0
+WORK,Work->topic1,Task 2,wip,,27,27.0
+WORK,Work->topic1,Task 3,wip,,178,178.0
+WORK,Work->topic1,Topic 1: XXX,wip,,45,45.0
+WORK,Work->topic1,Task 1,done,,150,150.0
+NO-WORK,Pause,Short break,wip,,16,16.0
+NO-WORK,Pause,Lunch break,wip,,31,31.0
+,,Start (hh:mm:ss),,,09:00:14,
+,,Stop (hh:mm:ss),,,18:00:18,
+,,SUMMED ALL (minutes),,,506,506.0
+,,SUMMED ALL (hours),,,8.433333333333334,8.433333333333334
+,,SUMMED WORK (minutes),,,459,459.0
+,,SUMMED WORK (hours),,,7.65,7.65
+,,SUMMED NO-WORK (minutes),,,47,47.0
+,,SUMMED NO-WORK (hours),,,0.7833333333333333,0.7833333333333333

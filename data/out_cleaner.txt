@@ -1,5 +1,4 @@
-DEBUG:: python taskcoach_manager.py cleaner ../data/tasks_2020_0113-0117.tsk ../data/tasks_2020_0120-0124.tsk
-INFO:: READ 76 lines from '../data/tasks_2020_0113-0117.tsk'.
-INFO:: - cleared 1 done tasks
-INFO:: - cleared 8 efforts additionally
-INFO:: WRITTEN cleared tasks into '../data/tasks_2020_0120-0124.tsk'.
+    INFO | READ 80 lines from 'data/tasks_2020_0113-0117.tsk'.
+    INFO | - cleared 2 done tasks
+    INFO | - cleared 9 efforts additionally
+    INFO | DONE. SEE cleared tasks in 'data/tasks_2020_0120-0124.tsk'.

@@ -22,7 +22,7 @@ import pandas as pd
 import sys
 
 from __init__ import logger
-from task_utils import FORMAT, SUMMARY, NOWORK_CATEGORIES
+from task_utils import FORMAT, SUMMARY, SPECIAL_CATEGORIES
 from typing import List, Dict, Tuple, Union
 # typing aliases
 Document = mdom.Document
@@ -320,7 +320,7 @@ def __get_offsets_per_day(task_dict):
 
 def __build_summary_df(category_dict,
                        task_dict,
-                       nowork_categories=NOWORK_CATEGORIES,
+                       nowork_categories=SPECIAL_CATEGORIES.NOWORK_CATEGORIES.value,
                        drop_task_without_effort=True) -> pd.DataFrame:
     
     days = sorted(list(__get_days(task_dict)))
@@ -328,6 +328,9 @@ def __build_summary_df(category_dict,
     item_list = []
     
     for category, task_id_list in category_dict.items():
+        # ignore item with category 'recurring', since it additionally lists the tasks
+        if category == SPECIAL_CATEGORIES.RECURRING.value:
+            continue
         label = SUMMARY.NO_WORK.value if category in nowork_categories else SUMMARY.WORK.value
         
         for task_id in task_id_list:
@@ -339,10 +342,16 @@ def __build_summary_df(category_dict,
             duration_per_day_dict = task_effort_dict[SUMMARY.DURATIONS.value]
             progress = task_effort_dict[SUMMARY.PROGRESS.value]
             description = task_effort_dict[SUMMARY.DESCRIPTION.value]
-    
+            
+            # restructure category
+            all_categories = ",".join([cat
+                                       for cat, tid_list in category_dict.items() for tid in tid_list
+                                       if tid == task_id])
+            
             item = {
                 SUMMARY.CATEGORY_TYPE.value : label,
-                SUMMARY.CATEGORY.value : category,
+                # SUMMARY.CATEGORY.value : category,
+                SUMMARY.CATEGORY.value : all_categories,
                 SUMMARY.TASK_NAME.value : task_name,
                 SUMMARY.PROGRESS.value : progress,
                 SUMMARY.DESCRIPTION.value : description
