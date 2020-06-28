@@ -34,7 +34,7 @@ python taskcoach_manager.py -s <input_fn.tsk> [<output_fn.csv>]
 NOTES:
  - Only tasks or subtasks with a category will be considered for the summary.
  - The category "Pause" is considered to be a "not working" category. The efforts with this category will be summarized separately. 
-   * The "not working" categories can be adjusted in the code (`task_utils.NOWORK_CATEGORIES`)
+   * The "not working" categories can be adjusted in the code (`task_utils.SPECIAL_CATEGORIES.NOWORK_CATEGORIES`).
 
 ### Recycling the task-file
 
@@ -49,6 +49,10 @@ The output file can be opened in the TaskCoach for further use.
 ```
 python taskcoach_manager.py -c <input_fn.tsk> [<output_fn.tsk>]
 ```
+
+NOTES:
+- If a done task has the category "recurring", it won't be removed, but only its 'done' status.
+  * The name of the "recurrent" category can be adjusted in the code (`task_utils.SPECIAL_CATEGORIES.RECURRENT`).
 
 # Progress
 
