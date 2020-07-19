@@ -48,8 +48,12 @@ def summarize_tasks(input_task_xml_fn: str, output_csv_fn: Union[str, None]) -> 
     logger.info("GETTING EFFORTS")
     task_dict = __get_efforts(doctree)
     
+    # assign a "missing" category to tasks which have no one assigned
+    category_dict = __complete_category_dict(category_dict, task_dict)
+    
     logger.info("BUILDING SUMMARY TABLE")
     task_summary_df = __build_summary_df(category_dict, task_dict)
+    # TODO daily_effort_summary_df_list = __build_daily_effort_summary(category_dict, task_dict)
     
     if output_csv_fn is None:
         output_csv_fn = os.path.splitext(input_task_xml_fn)[0] + OUTPUT_EXTENSION
@@ -217,14 +221,19 @@ def __get_effort_time(start_val:str, stop_val:str) -> Dict[str, int]:
     effort_in_minutes = int(d2_ts - d1_ts) // 60
     
     return {start_day : effort_in_minutes}
-    
 
-def __get_id(currnode):
-    id = None
-    if currnode.hasAttributes():
-        id_att = currnode.getAttributeNode(FORMAT.ID.value)
-        id_val = id_att.value
-    return id
+
+def __complete_category_dict(category_dict, task_dict):
+    
+    categories = [value for values in category_dict.values() for value in values]
+    for task_id, task_infos in task_dict.items():
+        if task_id not in categories:
+            logger.debug(f"- Task {task_infos[SUMMARY.TASK_NAME.value]} {task_id} without category found "
+                         f"-> assigned to category '{SPECIAL_CATEGORIES.MISSING.value}'.")
+            category_dict.setdefault(SPECIAL_CATEGORIES.MISSING.value, []).append(task_id)
+    
+    return category_dict
+    
 
 
 def __get_category_info_rec(current_category_node,
@@ -457,7 +466,7 @@ def __build_summary_df(category_dict,
         task_summary_df = task_summary_df.append(to_append_df).reset_index(drop=True)
     
     return task_summary_df
-
+            
 
 def __write_summary(overview_df: pd.DataFrame, output_fn: str) -> None:
     

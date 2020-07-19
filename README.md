@@ -62,11 +62,13 @@ NOTES:
 * check efforts with overlapping tracked time (which overlapping trackings are probably accidentally done)
 * get description into summary
 * check daily non-tracked time slots 
-* consider also tasks without any category in the summary
+
 
 
 ## Versions
 
+- 20200719:
+  * tasks without any category will be assigned to a category "<missing>" in the summary
 - 20200628:
   * count the overall efforts for each task during the tracked period, too
   * make sure the user doesn't overwrite the original file

@@ -73,3 +73,4 @@ class SUMMARY(Enum):
 class SPECIAL_CATEGORIES(Enum):
     NOWORK_CATEGORIES = ["Pause"]
     RECURRING = "recurring"
+    MISSING = "<missing>"
