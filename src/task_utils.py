@@ -11,6 +11,10 @@ __version__ = "20200607"
 from enum import Enum
 import re
 
+class IO(Enum):
+    CSV_EXTENSION = ".csv"
+    XLSX_EXTENSION = ".xlsx"
+
 class FORMAT(Enum):
     # NOTE that a task is formulated in a task tag. It can be an empty or a filled element, it can also embed another
     # task element.
@@ -74,3 +78,14 @@ class SPECIAL_CATEGORIES(Enum):
     NOWORK_CATEGORIES = ["Pause"]
     RECURRING = "recurring"
     MISSING = "<missing>"
+
+
+class DAILY_EFFORTS(Enum):
+    BEGIN = "begin"
+    END = "end"
+    TASK = "task"
+
+
+class DAY(Enum):
+    BEGIN = "00:00:00"
+    END = "23:59:59"

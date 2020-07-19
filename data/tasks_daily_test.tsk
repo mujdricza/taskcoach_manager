@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?taskcoach release="1.4.6" tskversion="37"?>
+
+<tasks>
+<task actualstartdate="2020-07-19 00:01:42" creationDateTime="2020-07-19 14:42:53.925000" id="5d48694f-c9bd-11ea-885c-7cb27d86f5b4" modificationDateTime="2020-07-19 14:43:42.066000" status="1" subject="Task 1">
+<effort id="79fa251e-c9bd-11ea-a258-7cb27d86f5b4" start="2020-07-19 09:00:42" status="1" stop="2020-07-19 09:15:04" />
+</task>
+<task actualstartdate="2020-07-19 00:01:42" creationDateTime="2020-07-19 14:45:11.289000" id="af287e90-c9bd-11ea-98c5-7cb27d86f5b4" modificationDateTime="2020-07-19 14:45:19.284000" status="1" subject="Task 2">
+<effort id="af287e8f-c9bd-11ea-8c4a-7cb27d86f5b4" start="2020-07-19 09:15:22" status="1" stop="2020-07-19 10:03:04" />
+</task>
+<task actualstartdate="2020-07-19 00:01:42" creationDateTime="2020-07-19 14:45:48.029000" id="c50e92d0-c9bd-11ea-8e8a-7cb27d86f5b4" modificationDateTime="2020-07-19 14:45:56.124000" status="1" subject="Task 3">
+<effort id="c50e92cf-c9bd-11ea-bef9-7cb27d86f5b4" start="2020-07-19 09:55:04" status="1" stop="2020-07-19 11:23:55" />
+</task>
+<task actualstartdate="2020-07-19 00:01:42" creationDateTime="2020-07-19 14:46:22.999000" id="d9e69271-c9bd-11ea-ab5c-7cb27d86f5b4" modificationDateTime="2020-07-19 14:46:33.191000" status="1" subject="Task 4">
+<effort id="d9e69270-c9bd-11ea-96fd-7cb27d86f5b4" start="2020-07-19 12:00:00" status="1" stop="2020-07-19 13:40:11" />
+</task>
+<category categorizables="5d48694f-c9bd-11ea-885c-7cb27d86f5b4 af287e90-c9bd-11ea-98c5-7cb27d86f5b4 c50e92d0-c9bd-11ea-8e8a-7cb27d86f5b4 d9e69271-c9bd-11ea-ab5c-7cb27d86f5b4" creationDateTime="2020-07-19 14:43:08.955000" expandedContexts="('categoryviewerintaskeditor',)" id="663dceae-c9bd-11ea-b66e-7cb27d86f5b4" modificationDateTime="2020-07-19 14:43:30.188000" status="1" subject="task_category" />
+<syncmlconfig>
+<TaskCoach-000001736718b37c69c7419800c000a800b2001c>
+<spds>
+<sources>
+<TaskCoach-000001736718b37c69c7419800c000a800b2001c.Tasks />
+<TaskCoach-000001736718b37c69c7419800c000a800b2001c.Notes />
+</sources>
+<syncml>
+<Auth />
+<Conn />
+</syncml>
+</spds>
+</TaskCoach-000001736718b37c69c7419800c000a800b2001c>
+</syncmlconfig>
+<guid>
+000001736718b37c69c7419800c000a800b2001c
+</guid>
+</tasks>

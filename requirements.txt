@@ -1,0 +1,4 @@
+python>=3.7
+pandas
+# optional, for xlsx outputs
+XlsxWriter

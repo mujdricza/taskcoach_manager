@@ -22,20 +22,18 @@ import pandas as pd
 import sys
 
 from __init__ import logger
-from task_utils import FORMAT, SUMMARY, SPECIAL_CATEGORIES
+from task_utils import IO, FORMAT, SUMMARY, SPECIAL_CATEGORIES, DAY, DAILY_EFFORTS
 from typing import List, Dict, Tuple, Union
 # typing aliases
 Document = mdom.Document
 LINES_WITH_AMOUNT_OF_CHANGES = Tuple[List[str], int]
 
-CSV_EXTENSION = ".csv"
-OUTPUT_EXTENSION = "_summary" + CSV_EXTENSION
 
-
-def summarize_tasks(input_task_xml_fn: str, output_csv_fn: Union[str, None]) -> None:
+def summarize_tasks(input_task_xml_fn: str, output_fn: Union[str, None],
+                    output_extension=IO.CSV_EXTENSION.value) -> None:
     
-    msg = f"The output file name extension should be '{CSV_EXTENSION}'."
-    if not (output_csv_fn is None or output_csv_fn.endswith(CSV_EXTENSION)):
+    msg = f"The output file name extension should be one of these values: '{list(map(lambda x: x.value, IO))}'."
+    if not (output_fn is None or os.path.splitext(output_fn)[1] in list(map(lambda x: x.value, IO))):
         logger.error(msg)
         sys.exit(1)
     
@@ -53,19 +51,26 @@ def summarize_tasks(input_task_xml_fn: str, output_csv_fn: Union[str, None]) -> 
     
     logger.info("BUILDING SUMMARY TABLE")
     task_summary_df = __build_summary_df(category_dict, task_dict)
-    # TODO daily_effort_summary_df_list = __build_daily_effort_summary(category_dict, task_dict)
+    daily_effort_summary_df_dict = __build_daily_effort_summary(task_dict)
     
-    if output_csv_fn is None:
-        output_csv_fn = os.path.splitext(input_task_xml_fn)[0] + OUTPUT_EXTENSION
+    if output_fn is None:
+        output_fn = os.path.splitext(input_task_xml_fn)[0] + "_summary" + output_extension
     else:
-        output_path = os.path.realpath(os.path.dirname(output_csv_fn))
+        output_path = os.path.realpath(os.path.dirname(output_fn))
         os.makedirs(output_path, exist_ok=True)
-        
     
-    logger.info(f"WRITING SUMMARY to '{output_csv_fn}'")
-    __write_summary(task_summary_df, output_csv_fn)
+    logger.info(f"WRITING SUMMARY to '{output_fn}'")
+
+    if output_extension == IO.CSV_EXTENSION.value:
+        __write_summary(task_summary_df, output_fn, mode="w")
+        for day, df in sorted(daily_effort_summary_df_dict.items()):
+            __write_summary(df, output_fn, mode="a")
+            
+    elif output_extension == IO.XLSX_EXTENSION.value:
+        __write_multi_sheet_summary(task_summary_df, daily_effort_summary_df_dict, output_fn)
     
-    logger.info("DONE. SEE task summary in '{}'.".format(output_csv_fn))
+    logger.info("DONE. SEE task summary in '{}'.".format(output_fn))
+    
 
 
 def __read_xml(input_fn: str) -> Document:
@@ -202,11 +207,12 @@ def __get_effort_time(start_val:str, stop_val:str) -> Dict[str, int]:
     # https://stackoverflow.com/questions/2788871/date-difference-in-minutes-in-python
     
     
-    start_day = start_val.split(" ")[0]
-    stop_day = stop_val.split(" ")[0]
+    start_day = start_val.split(FORMAT.SPACE.value)[0]
+    stop_day = stop_val.split(FORMAT.SPACE.value)[0]
     if start_day != stop_day:
-        logger.warning(f"Effort done over multiple days ({start_val} -> {stop_val})! Only the part upto midnight of the first day will be considered!")
-        stop_val = start_day + " 23:59:59"
+        logger.warning(f"Effort done over multiple days ({start_val} -> {stop_val})! "
+                       f"Only the part upto midnight of the first day will be considered!")
+        stop_val = start_day + FORMAT.SPACE.value + DAY.END.value
     
 
     fmt = '%Y-%m-%d %H:%M:%S'
@@ -223,13 +229,18 @@ def __get_effort_time(start_val:str, stop_val:str) -> Dict[str, int]:
     return {start_day : effort_in_minutes}
 
 
+def __get_effort_duration(start_val:str, stop_val:str) -> int:
+    
+    duration = tuple(__get_effort_time(start_val, stop_val).items())[0][1]
+    return duration
+
 def __complete_category_dict(category_dict, task_dict):
     
     categories = [value for values in category_dict.values() for value in values]
     for task_id, task_infos in task_dict.items():
         if task_id not in categories:
-            logger.debug(f"- Task {task_infos[SUMMARY.TASK_NAME.value]} {task_id} without category found "
-                         f"-> assigned to category '{SPECIAL_CATEGORIES.MISSING.value}'.")
+            logger.warning(f"- Task {task_infos[SUMMARY.TASK_NAME.value]} {task_id} without category found "
+                           f"-> assigned to category '{SPECIAL_CATEGORIES.MISSING.value}'.")
             category_dict.setdefault(SPECIAL_CATEGORIES.MISSING.value, []).append(task_id)
     
     return category_dict
@@ -304,6 +315,28 @@ def __is_later(datum, saved_datum):
     return False
 
 
+def __is_same(datum, saved_datum):
+    if datum is None or saved_datum is None:
+        return False
+    
+    day, time = datum.split()
+    saved_day, saved_time = saved_datum.split()
+    
+    if day == saved_day and time == saved_time:
+        return True
+    return False
+
+
+def __cmp_datum(datum, saved_datum):
+    if __is_same(datum, saved_datum):
+        return 0
+    if __is_earlier(datum, saved_datum):
+        return -1
+    if __is_later(datum, saved_datum):
+        return 1
+    raise ValueError
+    
+
 def __get_offsets_per_day(task_dict):
     
     days = sorted(list(__get_days(task_dict)))
@@ -333,7 +366,6 @@ def __build_summary_df(category_dict,
                        drop_task_without_effort=True) -> pd.DataFrame:
     
     days = sorted(list(__get_days(task_dict)))
-    logger.debug(f"Days: {days}")
     item_list = []
     
     for category, task_id_list in category_dict.items():
@@ -466,12 +498,106 @@ def __build_summary_df(category_dict,
         task_summary_df = task_summary_df.append(to_append_df).reset_index(drop=True)
     
     return task_summary_df
-            
+    
 
-def __write_summary(overview_df: pd.DataFrame, output_fn: str) -> None:
+def __build_daily_effort_summary(task_dict):
+    
+    # get all efforts per day
+    daily_efforts = {}
+    for task_id, task_infos in task_dict.items():
+        task_efforts = task_infos[SUMMARY.EFFORTS.value]
+        if not task_efforts:
+            continue
+        for day, efforts in task_efforts.items():
+            daily_efforts.setdefault(day, [])
+            for effort_begin, effort_end in efforts.items():
+                daily_efforts[day].append({
+                    DAILY_EFFORTS.BEGIN.value : effort_begin,
+                    DAILY_EFFORTS.END.value : effort_end,
+                    DAILY_EFFORTS.TASK.value: task_infos
+                })
+    
+    # get the tracked and untracked durations for each day in chronological order
+    daily_effort_tracks = {}
+    for day, effort_dict_list in daily_efforts.items():
+        effort_dict_list = sorted(sorted(effort_dict_list, key=lambda x: x[DAILY_EFFORTS.END.value]),
+                                        key=lambda x: x[DAILY_EFFORTS.BEGIN.value])
+        
+        effort_tracks = []
+        tracked_end = day + FORMAT.SPACE.value + DAY.BEGIN.value  # start with the day
+        for idx, effort_dict in enumerate(effort_dict_list):
+            effort_begin = effort_dict[DAILY_EFFORTS.BEGIN.value]
+            effort_end = effort_dict[DAILY_EFFORTS.END.value]
+            effort_task_dict = effort_dict[DAILY_EFFORTS.TASK.value]
+            task_name = effort_task_dict[SUMMARY.TASK_NAME.value]
+            
+            if __is_later(tracked_end, effort_begin):
+                # take the duration from effort_begin to time_end as clash time
+                duration = __get_effort_duration(effort_begin, tracked_end)
+                track_begin = effort_begin.split()[1]
+                track_end = tracked_end.split()[1]
+                effort_tracks.append( [day, track_begin, track_end, duration, "TIME-CLASH", task_name] )
+                logger.warning(f"! On {day}, {duration} minutes are tracked multiple times "
+                               f"({track_begin}-{track_end}) for task '{task_name}'.")
+                effort_begin = tracked_end
+            
+            if __is_later(effort_begin, tracked_end):
+                # this duration is not tracked
+                duration = __get_effort_duration(tracked_end, effort_begin)
+                track_begin = tracked_end.split()[1]
+                track_end = effort_begin.split()[1]
+                effort_tracks.append( [day, track_begin, track_end, duration, "<not tracked>", ""] )
+                tracked_end = effort_begin
+            
+            # normal case: the current effort begins with the end of the previous one
+            duration = __get_effort_duration(effort_begin, effort_end)
+            track_begin = effort_begin.split()[1]
+            track_end = effort_end.split()[1]
+            effort_tracks.append( [day, track_begin, track_end, duration, "", task_name] )
+            tracked_end = effort_end
+        
+        # take the efforts upto the end of the day
+        day_end = day + FORMAT.SPACE.value + DAY.END.value
+        if __is_later(day_end, tracked_end):
+            duration = __get_effort_duration(tracked_end, day_end)
+            track_begin = tracked_end.split()[1]
+            track_end = day_end.split()[1]
+            effort_tracks.append( [day, track_begin, track_end, duration, "<not tracked>", ""] )
+        
+        daily_effort_tracks[day] = effort_tracks
+    
+    # get a list of dataframes
+    daily_effort_tracks_df_dict = {}
+    for day, daily_efforts in daily_effort_tracks.items():
+        df = pd.DataFrame(daily_efforts, columns =['Day', 'Begin', 'End', 'Duration (min)', 'Warnings', 'Task name'])
+        daily_effort_tracks_df_dict[day] = df
+    
+    return daily_effort_tracks_df_dict
+
+
+def __write_summary(overview_df: pd.DataFrame, output_fn: str, mode="w") -> None:
     
     path_name = os.path.realpath(os.path.dirname(output_fn))
     os.makedirs(path_name, exist_ok=True)
     
-    with open(output_fn, "w") as f:
+    if mode=="a":
+        with open(output_fn, mode, encoding="utf-8") as f:
+            f.write(FORMAT.NL.value)
+    
+    with open(output_fn, mode, encoding="utf-8") as f:
         overview_df.to_csv(f, index=False)
+    
+
+def __write_multi_sheet_summary(task_summary_df, daily_effort_summary_df_dict, output_fn):
+    
+    writer = pd.ExcelWriter(output_fn, engine='xlsxwriter')  # python -m pip install XlsxWriter
+    
+    task_summary_df.to_excel(writer, sheet_name="SUMMARY", index=False)
+    
+    for day, df in sorted(daily_effort_summary_df_dict.items()):
+        
+        df.to_excel(writer, sheet_name=day, index=False)
+        workbook = writer.book
+        worksheet = writer.sheets[day]
+    
+    writer.save()

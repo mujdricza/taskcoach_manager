@@ -54,7 +54,7 @@ def clean_tasks(input_task_xml_fn: str, output_task_xml_fn: Union[str, None]) ->
 
 
 def __read_lines(input_fn: str) -> List[str]:
-    with open(input_fn) as f:
+    with open(input_fn, encoding="utf-8") as f:
         lines = [line.strip() for line in f.readlines()]
 
     return lines
@@ -217,7 +217,7 @@ def __remove_efforts(lines: List[str]) -> LINES_WITH_AMOUNT_OF_CHANGES: # List[s
 
 
 def write_lines(lines: List[str], output_fn: str) -> None:
-    with open(output_fn, "w") as f:
+    with open(output_fn, "w", encoding="utf-8") as f:
         for line in lines:
             f.write(line)
             f.write(FORMAT.NL.value)

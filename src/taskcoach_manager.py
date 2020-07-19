@@ -19,11 +19,13 @@ import sys
 from __init__ import logger
 import task_cleaner
 import task_summary
+from task_utils import IO
 
 
 class MODUS(Enum):
     CLEANER = "cleaner"
-    SUMMARY = "summary"
+    CSV_SUMMARY = "csv_summary"
+    XLSX_SUMMARY = "xlsx_summary"
 
 
 def get_arguments(args):
@@ -34,15 +36,21 @@ def get_arguments(args):
     parser.add_argument("-o", "--output_fn",
                         help=f"Output filename. "
                              f"This should have the file extension '.tsk' in modus '{MODUS.CLEANER.value}', "
-                             f"and the file extension '.csv' in modus '{MODUS.SUMMARY.value}'. "
-                             f"If not given, the outputs will be automatically saved in the folder of the input file.")
+                             f"and the file extension '.csv'/'.xlsx' in modi "
+                             f"'{MODUS.CSV_SUMMARY.value}'/'{MODUS.XLSX_SUMMARY.value}' respectively. "
+                             f"If not given, the outputs will be automatically saved in the folder of the input file "
+                             f"with the expected file extension.")
     modus = parser.add_mutually_exclusive_group(required=True)
     modus.add_argument("-c", "--cleaner", action="store_true", dest="cleaner",
                        help="Cleaning modus: it takes a .tsk file and removes all efforts and done tasks; "
-                            "this functionality is beneficial if someone tracks her/his tasks periodically, "
-                            "e.g. each week, and would like to see an overview of the efforts")
+                            "this functionality is beneficial if someone tracks her/his tasks periodically, e.g. "
+                            "each week, and would like to work on 'work-in-progress' tasks in the next time period.")
     modus.add_argument("-s", "--summary", action="store_true", dest="summary",
-                       help="Summary modus: a table-formatted per-day summary on the efforts will be extracted")
+                       help="Summary modus with csv output: "
+                            "a table-formatted per-day summary on the efforts will be extracted")
+    modus.add_argument("-x", "--xlsx", action="store_true", dest="xlsx_summary",
+                       help="Summary modus with xlsx output: "
+                            "a table-formatted per-day summary on the efforts will be extracted")
     parser.add_argument("-d", "--debug", action="store_true",
                         help="for printing debugging information")
     return parser.parse_args(args)
@@ -52,8 +60,8 @@ def main_cleaner(input_fn: str, output_fn: str) -> None:
     task_cleaner.clean_tasks(input_fn, output_fn)
 
 
-def main_summary(input_fn: str, output_fn: str) -> None:
-    task_summary.summarize_tasks(input_fn, output_fn)
+def main_summary(input_fn: str, output_fn: str, extension:str) -> None:
+    task_summary.summarize_tasks(input_fn, output_fn, extension)
 
 
 if __name__ == "__main__":
@@ -64,7 +72,8 @@ if __name__ == "__main__":
     logger.debug(f"RUNNING: python {' '.join(sys.argv)}")
     
     cleaner = arguments.cleaner
-    summary = arguments.summary
+    csv_summary = arguments.summary
+    xlsx_summary = arguments.xlsx_summary
     input_fn = arguments.input_fn
     
     output_fn = None
@@ -77,5 +86,8 @@ if __name__ == "__main__":
     
     if cleaner:
         main_cleaner(input_fn, output_fn)
-    elif summary:
-        main_summary(input_fn, output_fn)
+    elif csv_summary:
+        main_summary(input_fn, output_fn, IO.CSV_EXTENSION.value)
+    elif xlsx_summary:
+        main_summary(input_fn, output_fn, IO.XLSX_EXTENSION.value)
+        

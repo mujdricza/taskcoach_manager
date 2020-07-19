@@ -22,7 +22,7 @@
 #tmp/
 #__*/
 #*_old
-
+*.delta
 
 # Compiled source #
 ###################

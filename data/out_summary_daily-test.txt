@@ -1,0 +1,7 @@
+    INFO | READING doctree from 'taskcoach_manager/data/tasks_daily_test.tsk'
+    INFO | GETTING CATEGORIES
+    INFO | GETTING EFFORTS
+    INFO | BUILDING SUMMARY TABLE
+ WARNING | ! On 2020-07-19, 8 minutes are tracked multiple times (09:55:04-10:03:04) for task 'Task 3'.
+    INFO | WRITING SUMMARY to 'taskcoach_manager/data/tasks_daily_test_summary.csv'
+    INFO | DONE. SEE task summary in 'taskcoach_manager/data/tasks_daily_test_summary.csv'.

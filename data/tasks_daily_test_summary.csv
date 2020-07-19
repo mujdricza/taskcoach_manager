@@ -1,0 +1,24 @@
+Type,Category,Task name,Progress,Description,2020-07-19,Period duration (min)
+WORK,task_category,Task 1,wip,,14,14.0
+WORK,task_category,Task 2,wip,,47,47.0
+WORK,task_category,Task 3,wip,,88,88.0
+WORK,task_category,Task 4,wip,,100,100.0
+,,Start (hh:mm:ss),,,09:00:42,
+,,Stop (hh:mm:ss),,,13:40:11,
+,,SUMMED ALL (minutes),,,249,249.0
+,,SUMMED ALL (hours),,,4.15,4.15
+,,SUMMED WORK (minutes),,,249,249.0
+,,SUMMED WORK (hours),,,4.15,4.15
+,,SUMMED NO-WORK (minutes),,,0,0.0
+,,SUMMED NO-WORK (hours),,,0.0,0.0
+
+Day,Begin,End,Duration (min),Warnings,Task name
+2020-07-19,00:00:00,09:00:42,540,<not tracked>,
+2020-07-19,09:00:42,09:15:04,14,,Task 1
+2020-07-19,09:15:04,09:15:22,0,<not tracked>,
+2020-07-19,09:15:22,10:03:04,47,,Task 2
+2020-07-19,09:55:04,10:03:04,8,TIME-CLASH,Task 3
+2020-07-19,10:03:04,11:23:55,80,,Task 3
+2020-07-19,11:23:55,12:00:00,36,<not tracked>,
+2020-07-19,12:00:00,13:40:11,100,,Task 4
+2020-07-19,13:40:11,23:59:59,619,<not tracked>,
