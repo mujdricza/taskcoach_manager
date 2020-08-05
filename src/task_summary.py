@@ -184,7 +184,8 @@ def __get_task_info_rec(current_task_node, current_task_id=None, task_dict={}):
             elif attname == FORMAT.STOP.value:
                 stop_val = attval
         assert start_val != None
-        assert stop_val != None
+        assert stop_val != None, f"An effort does not have a stop time. " \
+                                 f"Make sure you are not currently running the time tracker. "
         
         day_dict = __get_effort_time(start_val, stop_val)
         for day, minutes in day_dict.items():
