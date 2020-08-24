@@ -487,11 +487,7 @@ def __build_summary_df(category_dict,
     to_append_df_list.append(work_sums_hours_df)
     
     for category_type in [SUMMARY.WORK.value, SUMMARY.NO_WORK.value]:
-        if SUMMARY.CATEGORY_TYPE.value not in task_summary_df \
-                or category_type not in task_summary_df:
-            work_df = pd.DataFrame()
-        else:
-            work_df = task_summary_df[task_summary_df[SUMMARY.CATEGORY_TYPE.value]==category_type]
+        work_df = task_summary_df[task_summary_df[SUMMARY.CATEGORY_TYPE.value]==category_type]
         
         work_sums_minutes = work_df.sum(numeric_only=True, axis=0)
         work_sums_hours = work_df.sum(numeric_only=True, axis=0)/60
