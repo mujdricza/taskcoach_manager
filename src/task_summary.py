@@ -10,7 +10,7 @@ NOTE:
 """
 
 __author__ = "emm"
-__version__ = "20200621"  # "20200607"
+__version__ = "20200824"  # "20200621", "20200607"
 
 
 import xml.dom.minidom as mdom
