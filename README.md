@@ -65,6 +65,8 @@ In the `data` directory, there are some example inputs and outputs
 
 ## Versions
 
+- 20200824:
+  * quitting summary process with a log and without writing any output if there is no effort tracked
 - 20200719:
   * in the summary file, also a track timeline per day is produced
   * tasks without any category will be assigned to a category "missing" in the summary
