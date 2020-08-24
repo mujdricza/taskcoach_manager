@@ -46,6 +46,10 @@ def summarize_tasks(input_task_xml_fn: str, output_fn: Union[str, None],
     logger.info("GETTING EFFORTS")
     task_dict = __get_efforts(doctree)
     
+    # if no efforts found, quit
+    if not __check_effort_presence(task_dict):
+        sys.exit(logger.warning("NO EFFORT detected -> quit."))
+    
     # assign a "missing" category to tasks which have no one assigned
     category_dict = __complete_category_dict(category_dict, task_dict)
     
@@ -230,6 +234,12 @@ def __get_effort_time(start_val:str, stop_val:str) -> Dict[str, int]:
     return {start_day : effort_in_minutes}
 
 
+def __check_effort_presence(task_dict):
+    for id, task_info in task_dict.items():
+        if task_info[SUMMARY.EFFORTS.value]:
+            return True
+    return False
+
 def __get_effort_duration(start_val:str, stop_val:str) -> int:
     
     duration = tuple(__get_effort_time(start_val, stop_val).items())[0][1]
@@ -368,7 +378,7 @@ def __build_summary_df(category_dict,
     
     days = sorted(list(__get_days(task_dict)))
     item_list = []
-    
+
     for category, task_id_list in category_dict.items():
         # ignore item with category 'recurring', since it additionally lists the tasks
         if category == SPECIAL_CATEGORIES.RECURRING.value:
@@ -417,7 +427,7 @@ def __build_summary_df(category_dict,
             item[SUMMARY.OVERALL_DURATION.value] = overall_duration
             
             item_list.append(item)
-
+    
     item_start = {
         SUMMARY.CATEGORY_TYPE.value: "",
         SUMMARY.CATEGORY.value: "",
@@ -460,7 +470,6 @@ def __build_summary_df(category_dict,
     
     # overall duration
     
-    
     # get some overview measures, too
     work_sums_minutes = task_summary_df.sum(numeric_only=True, axis=0)
     work_sums_hours = task_summary_df.sum(numeric_only=True, axis=0) / 60
@@ -476,9 +485,13 @@ def __build_summary_df(category_dict,
     
     to_append_df_list.append(work_sums_minutes_df)
     to_append_df_list.append(work_sums_hours_df)
-
+    
     for category_type in [SUMMARY.WORK.value, SUMMARY.NO_WORK.value]:
-        work_df = task_summary_df[task_summary_df[SUMMARY.CATEGORY_TYPE.value]==category_type]
+        if SUMMARY.CATEGORY_TYPE.value not in task_summary_df \
+                or category_type not in task_summary_df:
+            work_df = pd.DataFrame()
+        else:
+            work_df = task_summary_df[task_summary_df[SUMMARY.CATEGORY_TYPE.value]==category_type]
         
         work_sums_minutes = work_df.sum(numeric_only=True, axis=0)
         work_sums_hours = work_df.sum(numeric_only=True, axis=0)/60
