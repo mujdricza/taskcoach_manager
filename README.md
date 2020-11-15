@@ -65,6 +65,8 @@ In the `data` directory, there are some example inputs and outputs
 
 ## Versions
 
+- 20201115:
+  * durations under one minute are discarded from "not tracked" checking
 - 20200824:
   * quitting summary process with a log and without writing any output if there is no effort tracked
 - 20200719:

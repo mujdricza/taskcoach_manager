@@ -554,10 +554,11 @@ def __build_daily_effort_summary(task_dict):
             if __is_later(effort_begin, tracked_end):
                 # this duration is not tracked
                 duration = __get_effort_duration(tracked_end, effort_begin)
-                track_begin = tracked_end.split()[1]
-                track_end = effort_begin.split()[1]
-                effort_tracks.append( [day, track_begin, track_end, duration, "<not tracked>", ""] )
-                tracked_end = effort_begin
+                if duration > 0:
+                    track_begin = tracked_end.split()[1]
+                    track_end = effort_begin.split()[1]
+                    effort_tracks.append( [day, track_begin, track_end, duration, "<not tracked>", ""] )
+                    tracked_end = effort_begin
             
             # normal case: the current effort begins with the end of the previous one
             duration = __get_effort_duration(effort_begin, effort_end)
@@ -609,5 +610,5 @@ def __write_multi_sheet_summary(task_summary_df, daily_effort_summary_df_dict, o
         df.to_excel(writer, sheet_name=day, index=False)
         workbook = writer.book
         worksheet = writer.sheets[day]
-    
+        
     writer.save()
