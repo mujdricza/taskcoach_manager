@@ -546,9 +546,10 @@ def __build_daily_effort_summary(task_dict):
                 duration = __get_effort_duration(effort_begin, tracked_end)
                 track_begin = effort_begin.split()[1]
                 track_end = tracked_end.split()[1]
-                effort_tracks.append( [day, track_begin, track_end, duration, "TIME-CLASH", task_name] )
-                logger.warning(f"! On {day}, {duration} minutes are tracked multiple times "
-                               f"({track_begin}-{track_end}) for task '{task_name}'.")
+                if duration > 0:
+                    effort_tracks.append( [day, track_begin, track_end, duration, "TIME-CLASH", task_name] )
+                    logger.warning(f"! On {day}, {duration} minutes are tracked multiple times "
+                                   f"({track_begin}-{track_end}) for task '{task_name}'.")
                 effort_begin = tracked_end
             
             if __is_later(effort_begin, tracked_end):
@@ -557,7 +558,8 @@ def __build_daily_effort_summary(task_dict):
                 if duration > 0:
                     track_begin = tracked_end.split()[1]
                     track_end = effort_begin.split()[1]
-                    effort_tracks.append( [day, track_begin, track_end, duration, "<not tracked>", ""] )
+                    if duration > 0:
+                        effort_tracks.append( [day, track_begin, track_end, duration, "<not tracked>", ""] )
                     tracked_end = effort_begin
             
             # normal case: the current effort begins with the end of the previous one
