@@ -8,7 +8,7 @@ The tool TaskCoach is a freely available time tracker and task manager (https://
 """
 
 __author__ = "emm"
-__version__ = "20200607"
+__version__ = "20220206"  # "20200607"
 
 
 import argparse
@@ -16,10 +16,9 @@ from enum import Enum
 import logging
 import os
 import sys
-from __init__ import logger
-import task_cleaner
-import task_summary
-from task_utils import IO
+from tcm_utils.__init__ import logger
+from tcm_utils import task_cleaner, task_summary
+from tcm_utils.task_utils import IO
 
 
 class MODUS(Enum):

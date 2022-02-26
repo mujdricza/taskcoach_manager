@@ -10,7 +10,7 @@ NOTE:
 """
 
 __author__ = "emm"
-__version__ = "20200824"  # "20200621", "20200607"
+__version__ = "20220206"  # "20200824" "20200621", "20200607"
 
 
 import xml.dom.minidom as mdom
@@ -21,8 +21,8 @@ import time
 import pandas as pd
 import sys
 
-from __init__ import logger
-from task_utils import IO, FORMAT, SUMMARY, SPECIAL_CATEGORIES, DAY, DAILY_EFFORTS
+from tcm_utils.__init__ import logger
+from tcm_utils.task_utils import IO, FORMAT, SUMMARY, SPECIAL_CATEGORIES, DAY, DAILY_EFFORTS
 from typing import List, Dict, Tuple, Union
 # typing aliases
 Document = mdom.Document
@@ -480,8 +480,8 @@ def __build_summary_df(category_dict,
     work_sums_minutes_df = pd.DataFrame([work_sums_minutes], columns=task_summary_df.columns)
     work_sums_hours_df = pd.DataFrame([work_sums_hours], columns=task_summary_df.columns)
 
-    # task_summary_df = task_summary_df.append(work_sums_minutes_df).reset_index(drop=True)
-    # task_summary_df = task_summary_df.append(work_sums_hours_df).reset_index(drop=True)
+    # task_summary_df = df.concat([task_summary_df, work_sums_minutes_df], ignore_index=True)
+    # task_summary_df = df.concat([task_summary_df, work_sums_hours_df], ignore_index=True)
     
     to_append_df_list.append(work_sums_minutes_df)
     to_append_df_list.append(work_sums_hours_df)
@@ -498,15 +498,15 @@ def __build_summary_df(category_dict,
         work_sums_minutes_df = pd.DataFrame([work_sums_minutes], columns = task_summary_df.columns)
         work_sums_hours_df = pd.DataFrame([work_sums_hours], columns = task_summary_df.columns)
 
-        # task_summary_df = task_summary_df.append(work_sums_minutes_df).reset_index(drop=True)
-        # task_summary_df = task_summary_df.append(work_sums_hours_df).reset_index(drop=True)
+        # task_summary_df = df.concat([task_summary_df, work_sums_minutes_df], ignore_index=True)
+        # task_summary_df = df.concat([task_summary_df, work_sums_hours_df], ignore_index=True)
 
         to_append_df_list.append(work_sums_minutes_df)
         to_append_df_list.append(work_sums_hours_df)
     
     for to_append_df in to_append_df_list:
-        task_summary_df = task_summary_df.append(to_append_df).reset_index(drop=True)
-    
+        task_summary_df = pd.concat([task_summary_df, to_append_df], ignore_index=True)
+
     return task_summary_df
     
 
