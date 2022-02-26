@@ -485,7 +485,6 @@ def __build_summary_df(category_dict,
         to_append_df_list.append(work_sums_minutes_df)
 
     # - per hours
-    # work_sums_hours = round(task_summary_df.sum(numeric_only=True, axis=0) / 60, 2)
     work_sums_hours = (task_summary_df.sum(numeric_only=True, axis=0) / 60.).apply(lambda x: "{:02.2f}".format(x))
     work_sums_hours[SUMMARY.TASK_NAME.value] = f"SUMMED ALL (hours)"
     work_sums_hours_df = pd.DataFrame([work_sums_hours], columns=task_summary_df.columns)
@@ -493,7 +492,6 @@ def __build_summary_df(category_dict,
 
     for category_type in [SUMMARY.WORK.value, SUMMARY.NO_WORK.value]:
         work_df = task_summary_df[task_summary_df[SUMMARY.CATEGORY_TYPE.value]==category_type]
-        # work_sums_hours = round(work_df.sum(numeric_only=True, axis=0) / 60, 2)
         work_sums_hours = (work_df.sum(numeric_only=True, axis=0) / 60.).apply(lambda x: "{:02.2f}".format(x))
         work_sums_hours[SUMMARY.TASK_NAME.value] = f"SUMMED {category_type} (hours)"
         work_sums_hours_df = pd.DataFrame([work_sums_hours], columns = task_summary_df.columns)
