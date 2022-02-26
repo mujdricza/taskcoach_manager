@@ -375,7 +375,7 @@ def __build_summary_df(category_dict,
                        task_dict,
                        nowork_categories=SPECIAL_CATEGORIES.NOWORK_CATEGORIES.value,
                        drop_task_without_effort=True) -> pd.DataFrame:
-    
+
     days = sorted(list(__get_days(task_dict)))
     item_list = []
 
@@ -384,7 +384,7 @@ def __build_summary_df(category_dict,
         if category == SPECIAL_CATEGORIES.RECURRING.value:
             continue
         label = SUMMARY.NO_WORK.value if category in nowork_categories else SUMMARY.WORK.value
-        
+
         for task_id in task_id_list:
             task_effort_dict = task_dict[task_id]
             if drop_task_without_effort:
@@ -394,12 +394,12 @@ def __build_summary_df(category_dict,
             duration_per_day_dict = task_effort_dict[SUMMARY.DURATIONS.value]
             progress = task_effort_dict[SUMMARY.PROGRESS.value]
             description = task_effort_dict[SUMMARY.DESCRIPTION.value]
-            
+
             # restructure category
             all_categories = ",".join([cat
                                        for cat, tid_list in category_dict.items() for tid in tid_list
                                        if tid == task_id])
-            
+
             item = {
                 SUMMARY.CATEGORY_TYPE.value : label,
                 # SUMMARY.CATEGORY.value : category,
@@ -408,10 +408,10 @@ def __build_summary_df(category_dict,
                 SUMMARY.PROGRESS.value : progress,
                 SUMMARY.DESCRIPTION.value : description
             }
-            
+
             # overall duration
             overall_duration = 0
-            
+
             # per-day duration
             for day in days:
                 duration = 0
@@ -425,9 +425,9 @@ def __build_summary_df(category_dict,
                     overall_duration += duration
                 item[day] = duration
             item[SUMMARY.OVERALL_DURATION.value] = overall_duration
-            
+
             item_list.append(item)
-    
+
     item_start = {
         SUMMARY.CATEGORY_TYPE.value: "",
         SUMMARY.CATEGORY.value: "",
@@ -456,54 +456,49 @@ def __build_summary_df(category_dict,
         item_start[day] = offsets_per_day_dict[day][SUMMARY.START_TIME.value].split()[1]
         item_stop[day] = offsets_per_day_dict[day][SUMMARY.STOP_TIME.value].split()[1]
         item_untracked[day] = offsets_per_day_dict[day][SUMMARY.UNTRACKED.value]
-    
+
     item_list_2 = []
     item_list_2.append(item_start)
     item_list_2.append(item_stop)
     # item_list_2.append(item_untracked)  # TODO
-    
+
     task_summary_df = pd.DataFrame(item_list)
-    
+
     to_append_df_list = []
     offsets_df = pd.DataFrame(item_list_2)
     to_append_df_list.append(offsets_df)
-    
+
     # overall duration
-    
+
     # get some overview measures, too
+    # - per minutes
     work_sums_minutes = task_summary_df.sum(numeric_only=True, axis=0)
-    work_sums_hours = task_summary_df.sum(numeric_only=True, axis=0) / 60
-
     work_sums_minutes[SUMMARY.TASK_NAME.value] = f"SUMMED ALL (minutes)"
-    work_sums_hours[SUMMARY.TASK_NAME.value] = f"SUMMED ALL (hours)"
-
     work_sums_minutes_df = pd.DataFrame([work_sums_minutes], columns=task_summary_df.columns)
-    work_sums_hours_df = pd.DataFrame([work_sums_hours], columns=task_summary_df.columns)
-
-    # task_summary_df = df.concat([task_summary_df, work_sums_minutes_df], ignore_index=True)
-    # task_summary_df = df.concat([task_summary_df, work_sums_hours_df], ignore_index=True)
-    
     to_append_df_list.append(work_sums_minutes_df)
-    to_append_df_list.append(work_sums_hours_df)
-    
+
     for category_type in [SUMMARY.WORK.value, SUMMARY.NO_WORK.value]:
         work_df = task_summary_df[task_summary_df[SUMMARY.CATEGORY_TYPE.value]==category_type]
-        
         work_sums_minutes = work_df.sum(numeric_only=True, axis=0)
-        work_sums_hours = work_df.sum(numeric_only=True, axis=0)/60
-        
         work_sums_minutes[SUMMARY.TASK_NAME.value] = f"SUMMED {category_type} (minutes)"
-        work_sums_hours[SUMMARY.TASK_NAME.value] = f"SUMMED {category_type} (hours)"
-        
         work_sums_minutes_df = pd.DataFrame([work_sums_minutes], columns = task_summary_df.columns)
-        work_sums_hours_df = pd.DataFrame([work_sums_hours], columns = task_summary_df.columns)
-
-        # task_summary_df = df.concat([task_summary_df, work_sums_minutes_df], ignore_index=True)
-        # task_summary_df = df.concat([task_summary_df, work_sums_hours_df], ignore_index=True)
-
         to_append_df_list.append(work_sums_minutes_df)
+
+    # - per hours
+    # work_sums_hours = round(task_summary_df.sum(numeric_only=True, axis=0) / 60, 2)
+    work_sums_hours = (task_summary_df.sum(numeric_only=True, axis=0) / 60.).apply(lambda x: "{:02.2f}".format(x))
+    work_sums_hours[SUMMARY.TASK_NAME.value] = f"SUMMED ALL (hours)"
+    work_sums_hours_df = pd.DataFrame([work_sums_hours], columns=task_summary_df.columns)
+    to_append_df_list.append(work_sums_hours_df)
+
+    for category_type in [SUMMARY.WORK.value, SUMMARY.NO_WORK.value]:
+        work_df = task_summary_df[task_summary_df[SUMMARY.CATEGORY_TYPE.value]==category_type]
+        # work_sums_hours = round(work_df.sum(numeric_only=True, axis=0) / 60, 2)
+        work_sums_hours = (work_df.sum(numeric_only=True, axis=0) / 60.).apply(lambda x: "{:02.2f}".format(x))
+        work_sums_hours[SUMMARY.TASK_NAME.value] = f"SUMMED {category_type} (hours)"
+        work_sums_hours_df = pd.DataFrame([work_sums_hours], columns = task_summary_df.columns)
         to_append_df_list.append(work_sums_hours_df)
-    
+
     for to_append_df in to_append_df_list:
         task_summary_df = pd.concat([task_summary_df, to_append_df], ignore_index=True)
 
@@ -608,7 +603,7 @@ def __write_multi_sheet_summary(task_summary_df, daily_effort_summary_df_dict, o
     task_summary_df.to_excel(writer, sheet_name="SUMMARY", index=False)
     
     for day, df in sorted(daily_effort_summary_df_dict.items()):
-        
+
         df.to_excel(writer, sheet_name=day, index=False)
         workbook = writer.book
         worksheet = writer.sheets[day]
